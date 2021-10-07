@@ -1,0 +1,38 @@
+.background {
+    position: fixed;
+    z-index: 1;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.blue-container {
+    position: absolute;
+    z-index: 2;
+    top: 0; 
+    left: 0;
+    min-width: 44%;
+    max-width: 44%;
+    min-height: 100%;
+    background-color: #063970;
+    opacity: 0.5
+}
+
+.presentation {
+    position: relative;
+    z-index: 3;
+    padding: 300px 0px 0px 0px;
+    color: white;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+
+.presentation p {
+    font-size: 20px;
+    padding: 3%;
+}
+
+.presentation h1 {
+    font-size: 30px;
+    font-weight: bold;
+}
