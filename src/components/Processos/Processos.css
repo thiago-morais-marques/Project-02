@@ -1,0 +1,17 @@
+.accordion {
+    background-color: #eee;
+    color: #444;
+     padding: 18px;
+    width: 100%;
+ 
+}
+  
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+  
+.page-title {
+    margin-bottom: 1%;
+}
+
