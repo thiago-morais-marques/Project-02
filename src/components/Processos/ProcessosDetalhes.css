@@ -1,0 +1,12 @@
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+    text-align: left;
+}
+
+.details-keys {
+    font-weight: bold;
+}

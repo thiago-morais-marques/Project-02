@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import './Processos.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -9,8 +9,10 @@ import { MdAddCircle, MdModeEdit } from 'react-icons/md';
 import { RiDeleteBinLine } from 'react-icons/ri'
 import { IconContext } from "react-icons";
 
+import ProcessosDetalhes from "./ProcessosDetalhes";
 
 const Processos = (props) => {
+
     return (
       <div>    
         <h1 className='page-title'>Processos</h1>
@@ -38,20 +40,21 @@ const Processos = (props) => {
                 </IconContext.Provider>
                 </Accordion.Header>
                 <Accordion.Body >
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+                  {/*Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
                   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                   veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
                   commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
                   velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
                   cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                  est laborum.
+                  est laborum.*/}
+                  <br/>
+                  <ProcessosDetalhes detalhes={processo} />
                 </Accordion.Body>
               </Accordion.Item>
           )})};
         
         </Accordion>
       </div> 
-      
       
     );
 }
