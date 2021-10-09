@@ -1,17 +1,41 @@
 .accordion {
     background-color: #eee;
     color: #444;
-     padding: 18px;
+    padding: 18px;
     width: 100%;
- 
 }
-  
-  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+
 .active, .accordion:hover {
     background-color: #ccc;
 }
   
 .page-title {
-    margin-bottom: 1%;
+    color: #063970;
 }
+
+.add-new-suit {
+    display: flex;
+    justify-content: flex-end;
+    color:blue;
+    margin-right: 1em;
+}
+
+.react-icons {
+    margin-top: 0.3em;;
+    vertical-align:middle !important;
+}
+
+.proc-number {
+    font-weight: bold;
+}
+
+.edit-delete-icons {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 4rem;
+    text-align: right;
+}
+   
 
