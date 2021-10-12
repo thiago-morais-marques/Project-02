@@ -5,6 +5,7 @@ const ProcessosDetalhes = (props) => {
     return (
         <div className='row'>
             <div className='column'>
+
                 <span className='details-keys'>
                     Pólo do Cliente:&nbsp;
                 </span>
@@ -38,10 +39,10 @@ const ProcessosDetalhes = (props) => {
                 <span className='details-keys'>
                     Data do Trânsito em Julgado:&nbsp;
                 </span>
-                    {props.detalhes.dataTransitoEmJulgado}
+                    {props.detalhes.dataTransitoEmJulgado === null ? "Processo Ativo" : props.detalhes.dataTransitoEmJulgado}
                     <br/>
-            </div>
-            <div className='column'>
+                    <br/>
+
                 <span className='details-keys'>
                     Juiz:&nbsp;
                 </span>
@@ -62,11 +63,77 @@ const ProcessosDetalhes = (props) => {
                 </span>
                     {props.detalhes.procedenciaPrimeiraInstancia === true ? 'Sim' : 'Não' }
                     <br/>
+
+            </div>
+
+            <div className='column'>
+                
                 <span className='details-keys'>
                     Recurso para 2ª Instância:&nbsp;
                 </span>
                     {props.detalhes.recursoSegundaInstancia === true ? 'Sim' : 'Não' }
                     <br/>
+                <span className='details-keys'>
+                    Desembargador Relator:&nbsp;
+                </span>
+                    {props.detalhes.desembargadorRelator === null ? 'Sem Relator' : props.detalhes.desembargadorRelator}
+                    <br/>
+                <span className='details-keys'>
+                    Julgamento em 2ª Instância:&nbsp;
+                </span>
+                    {props.detalhes.julgamentoSegundaInstancia === true ? 'Sim' : 'Não' }
+                    <br/>
+                <span className='details-keys'>
+                    Procedência em 2ª Instância:&nbsp;
+                </span>
+                    {props.detalhes.procedenciaSegundaInstancia === true ? 'Sim' : 'Não' }
+                    <br/>
+                    <br/>
+
+                <span className='details-keys'>
+                    Recurso para o STJ:&nbsp;
+                </span>
+                    {props.detalhes.recursoStj === true ? 'Sim' : 'Não' }
+                    <br/>
+                <span className='details-keys'>
+                    Ministro STJ Relator:&nbsp;
+                </span>
+                    {props.detalhes.ministroStjRelator === null ? 'Sem Relator' : props.detalhes.ministroStjRelator}
+                    <br/>
+                <span className='details-keys'>
+                    Julgamento no STJ:&nbsp;
+                </span>
+                    {props.detalhes.julgamentoStj === true ? 'Sim' : 'Não' }
+                    <br/>
+                <span className='details-keys'>
+                    Procedência no STJ:&nbsp;
+                </span>
+                    {props.detalhes.procedenciaStj === true ? 'Sim' : 'Não' }
+                    <br/>
+                    <br/>
+
+                <span className='details-keys'>
+                    Recurso para o STF:&nbsp;
+                </span>
+                    {props.detalhes.recursoStf === true ? 'Sim' : 'Não' }
+                    <br/>
+                <span className='details-keys'>
+                    Ministro STF Relator:&nbsp;
+                </span>
+                    {props.detalhes.ministroStfRelator === null ? 'Sem Relator' : props.detalhes.ministroStfRelator}
+                    <br/>
+                <span className='details-keys'>
+                    Julgamento no STF:&nbsp;
+                </span>
+                    {props.detalhes.julgamentoStf === true ? 'Sim' : 'Não' }
+                    <br/>
+                <span className='details-keys'>
+                    Procedência eno STF:&nbsp;
+                </span>
+                    {props.detalhes.procedenciaStj === true ? 'Sim' : 'Não' }
+                    <br/>
+                    <br/>
+                
             </div>
         </div>
     );

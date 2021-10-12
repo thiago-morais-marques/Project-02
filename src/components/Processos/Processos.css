@@ -16,13 +16,7 @@
 .add-new-suit {
     display: flex;
     justify-content: flex-end;
-    color:blue;
     margin-right: 1em;
-}
-
-.react-icons {
-    margin-top: 0.3em;;
-    vertical-align:middle !important;
 }
 
 .proc-number {

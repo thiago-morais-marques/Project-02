@@ -22,7 +22,6 @@
     position: relative;
     z-index: 3;
     padding: 20vh 0px 0px 0px;
-    color: white;
     margin-left: 15%;
     margin-right: 15%;
 }
@@ -30,9 +29,11 @@
 .presentation p {
     font-size: 20px;
     padding: 3%;
+    color: #ffffff;
 }
 
 .presentation h1 {
     font-size: 30px;
     font-weight: bold;
+    color: #ffffff;
 }

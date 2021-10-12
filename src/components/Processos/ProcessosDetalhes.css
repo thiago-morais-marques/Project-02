@@ -1,9 +1,11 @@
 .row {
     display: flex;
+    margin-left: 1vw;
+    width: 75vw;
 }
 
 .column {
-    flex: 50%;
+    flex:50%;
     text-align: left;
 }
 

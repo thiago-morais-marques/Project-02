@@ -1,0 +1,16 @@
+.text-only-button {
+    background:none;
+    border:none;
+    margin:0;
+    padding:0;
+    cursor: pointer;
+    display: flex;
+    color:blue;
+    margin-right: 1em;
+    margin-bottom: 0.5em;
+}
+
+.react-icons {
+    margin-top: 0.3em;;
+    vertical-align:middle !important;
+}

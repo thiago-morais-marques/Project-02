@@ -8,6 +8,7 @@ import Navbar from '../Navbar/Navbar';
 import Home from '../Home/Home';
 import Processos from '../Processos/Processos';
 import Relatorios from '../Relatorios/Relatorios';
+//import CadastrarProcesso from '../Processos/CadastrarProcesso';
 
 function App() {
 
@@ -41,12 +42,16 @@ function App() {
 
         <Route exact path='/processos'>
           {loading ? <div>Loading...</div> : <Processos processos={suits}/>}
-          {/*<Processos processos={suits}/>*/}
+
         </Route>
 
         <Route exact path='/relatorios'>
           <Relatorios />
         </Route>
+
+        {/*<Route exact path='/cadastrar'>
+          <CadastrarProcesso />
+        </Route>*/}
 
       </BrowserRouter>
 
