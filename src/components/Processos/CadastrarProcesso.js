@@ -259,37 +259,30 @@ const CadastrarProcesso = () => {
                             <Col xs={2} className="mt-4">
                                 <Form.Group >
                                     <Form.Check
-                                    required
                                     label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    name="sentencaProferida"
                                     />
                                 </Form.Group>
                                 <Form.Group className="">
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Julgamento do Mérito"
+                                    name="julgamentoMerito"
                                     />
                                 </Form.Group>
                                 
                             </Col>
+
                             <Col className="mt-4">
                                 <Form.Group className="">
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Procedência - 1ª Instância"
+                                    name="procedenciaPrimeiraInstancia"
                                     />
                                 </Form.Group>
                                 <Form.Group className="">
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Recurso para 2ª Instância"
+                                    name="recursoSegundaInstancia"
                                     />
                                 </Form.Group>
                             </Col>
@@ -301,44 +294,34 @@ const CadastrarProcesso = () => {
                             md={inputSize} 
                             >
                                 <Form.Label>
-                                    Juiz
+                                    Desembargador Relator
                                 </Form.Label>
                                 <Form.Control
-                                    required
                                     type="text"
-                                    name="juiz"
+                                    name="desembargadorRelator"
                                 />
-                                <Form.Control.Feedback type="invalid">
-                                    Campo Obrigatório
-                                </Form.Control.Feedback>
                             </Form.Group>
                             
                             <Col xs={2} className="mt-4">
                                 <Form.Group >
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Julgamento - 2ª Instância"
+                                    name="julgamentoSegundaInstancia"
                                     />
                                 </Form.Group>
                                 <Form.Group className="">
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Procedência - 2ª Instância"
+                                    name="procedenciaSegundaInstancia"
                                     />
                                 </Form.Group>
                                 
                             </Col>
-                            <Col className="mt-4">
+                            <Col xs={3} className="mt-4">
                                 <Form.Group className="">
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Recurso para o STJ"
+                                    name="recursoStj"
                                     />
                                 </Form.Group>
                             </Col>
@@ -351,33 +334,25 @@ const CadastrarProcesso = () => {
                             md={inputSize} 
                             >
                                 <Form.Label>
-                                    Juiz
+                                    Ministro do STJ Relator
                                 </Form.Label>
                                 <Form.Control
-                                    required
                                     type="text"
-                                    name="juiz"
+                                    name="ministroStjRelator"
                                 />
-                                <Form.Control.Feedback type="invalid">
-                                    Campo Obrigatório
-                                </Form.Control.Feedback>
                             </Form.Group>
                             
                             <Col xs={2} className="mt-4">
                                 <Form.Group >
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Julgamento no STJ"
+                                    name="julgamentoStj"
                                     />
                                 </Form.Group>
                                 <Form.Group className="">
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Procedência no STJ"
+                                    name="procedenciaStj"
                                     />
                                 </Form.Group>
                                 
@@ -385,10 +360,8 @@ const CadastrarProcesso = () => {
                             <Col className="mt-4">
                                 <Form.Group className="">
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Recurso para o STF"
+                                    name="recursoStf"
                                     />
                                 </Form.Group>
                             </Col>
@@ -401,33 +374,25 @@ const CadastrarProcesso = () => {
                             md={inputSize} 
                             >
                                 <Form.Label>
-                                    Juiz
+                                    Ministro do STF Relator
                                 </Form.Label>
                                 <Form.Control
-                                    required
                                     type="text"
-                                    name="juiz"
+                                    name="ministroStfRelator"
                                 />
-                                <Form.Control.Feedback type="invalid">
-                                    Campo Obrigatório
-                                </Form.Control.Feedback>
                             </Form.Group>
                             
                             <Col xs={2} className="mt-4">
                                 <Form.Group >
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Julgamento no STF"
+                                    name="julgamentoStf"
                                     />
                                 </Form.Group>
                                 <Form.Group className="">
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Procedência no STF"
+                                    name="procedenciaStf"
                                     />
                                 </Form.Group>
                                 
@@ -435,10 +400,8 @@ const CadastrarProcesso = () => {
                             <Col className="mt-4">
                                 <Form.Group className="">
                                     <Form.Check
-                                    required
-                                    label="Sentença Proferida"
-                                    feedback="You must agree before submitting."
-                                    feedbackType="invalid"
+                                    label="Trânsito em Julgado"
+                                    name="transitoEmJulgado"
                                     />
                                 </Form.Group>
                             </Col>
@@ -451,7 +414,7 @@ const CadastrarProcesso = () => {
                                 md={inputSize} 
                                 >
                                 <Form.Label >
-                                    Data do Último Andamento
+                                    Data do Trânsito em Julgado
                                 </Form.Label>
                                     <DatePicker
                                         className="date-picker"
@@ -460,7 +423,7 @@ const CadastrarProcesso = () => {
                                         locale="pt-BR"
                                         dateFormat="dd/MM/yyyy"
                                         type="date"
-                                        name="dataUltimoAndamento" 
+                                        name="dataTransitoEmJulgado" 
                                     />
                             </Form.Group>
                         </Row>
