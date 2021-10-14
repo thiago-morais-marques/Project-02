@@ -150,14 +150,17 @@ const CadastrarProcesso = () => {
                         as={Col} 
                         md={inputSize} 
                         >
-                         <Form.Label>
+                         <Form.Label className="ml-6">
                             Data
                         </Form.Label>
                         <DatePicker
-                            selected={startDate} 
+                            className="date-picker ml-6"
+                            selected={startDate}
                             onChange={(date) => setStartDate(date)}
                             locale="pt-BR"
                             dateFormat="dd/MM/yyyy"
+                            type="date"
+                            name="dataDistribuicao" 
                         />
                         </Form.Group>
                         <br/>
