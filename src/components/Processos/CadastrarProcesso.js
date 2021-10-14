@@ -1,11 +1,13 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
 
 import './CadastrarProcesso.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "react-datepicker/dist/react-datepicker.css";
 
 import DatePicker from "react-datepicker";
-import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import { registerLocale, setDefaultLocale } from "react-datepicker";
 import ptBR from 'date-fns/locale/pt-BR';
 import { Modal, Form, InputGroup, FormControl, Button, Col, Row } from 'react-bootstrap';
 import { MdAddCircle } from 'react-icons/md';
@@ -13,25 +15,70 @@ import { IconContext } from "react-icons";
 
 const CadastrarProcesso = () => {
 
+    const history = useHistory();
+
+    const [state, setState] = useState({
+        poloAtivo: "",
+        poloPassivo: "",
+        poloCliente: "",
+        processo: "",
+        vara: "",
+        pedido: "",
+        dataDistribuicao: null,
+        dataUltimoAndamento: null,
+        juiz: "",
+        sentencaProferida: false,
+        julgamentoMerito: false,
+        procedenciaPrimeiraInstancia: false,
+        recursoSegundaInstancia: false,
+        desembargadorRelator: "",
+        julgamentoSegundaInstancia: false,
+        procedenciaSegundaInstancia: false,
+        recursoStj: false,
+        ministroStjRelator: "",
+        julgamentoStj: false,
+        procedenciaStj: false,
+        recursoStf: false,
+        ministroStfRelator: "",
+        julgamentoStf: false,
+        procedenciaStf: false,
+        transitoEmJulgado: false,
+        dataTransitoEmJulgado: null
+      });
+
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const [validated, setValidated] = useState(false);
 
-    const [startDate, setStartDate] = useState(null);
+    const [startDateDistribuicao, setStartDateDistribuicao] = useState(new Date());
+    const [startDateAndamento, setStartDateAndamento] = useState(new Date());
+    const [startDateTransito, setStartDateTransito] = useState(new Date());
+
     registerLocale('pt-BR', ptBR);
     setDefaultLocale('pt-BR');
 
-    const handleSubmit = (event) => {
-    const form = event.currentTarget;
-        if (form.checkValidity() === false) {
+    function handleSubmit(event) {
         event.preventDefault();
-        event.stopPropagation();
-        }
 
-        setValidated(true);
-    } 
+        /*const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+        event.stopPropagation();
+        } else {setValidated(true)};*/
+        
+        axios
+          .post("http://localhost:4000/processos", state)
+          .then((response) => {
+            console.log(response);
+            //history.push("/");
+          })
+          .catch((err) => console.error(err));
+    }
+    
+    function handleChange(event) {
+    setState({ ...state, [event.target.name]: event.target.value });
+    }
 
     const inputSize = 4;
 
@@ -79,6 +126,8 @@ const CadastrarProcesso = () => {
                                     required
                                     type="text"
                                     name="poloAtivo"
+                                    value={state.poloAtivo}
+                                    onChange={handleChange}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     Campo Obrigatório
@@ -96,6 +145,8 @@ const CadastrarProcesso = () => {
                                     required
                                     type="text"
                                     name="poloPassivo"
+                                    value={state.poloPassivo}
+                                    onChange={handleChange}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     Campo Obrigatório
@@ -113,7 +164,13 @@ const CadastrarProcesso = () => {
                                 <Form.Label>
                                     Pólo do Cliente
                                 </Form.Label>
-                                        <Form.Select >
+                                        <Form.Select
+                                            required 
+                                            type="text"
+                                            name="poloCliente"    
+                                            value={state.poloCliente}
+                                            onChange={handleChange}
+                                        >
                                             <option value="Ativo">Ativo</option>
                                             <option value="Passivo">Passivo</option>
                                         </Form.Select>
@@ -130,7 +187,13 @@ const CadastrarProcesso = () => {
                                     Número do Processo
                                 </Form.Label>
 
-                                <InputGroup bsPrefix="input-group-container">
+                                <InputGroup 
+                                bsPrefix="input-group-container"
+                                type="text"
+                                name="processo"
+                                value={state.processo}
+                                onChange={handleChange}
+                                >
                                     <FormControl 
                                     type="text" 
                                     bsPrefix="input-01"
@@ -173,6 +236,8 @@ const CadastrarProcesso = () => {
                                     required
                                     type="text"
                                     name="pedido"
+                                    value={state.pedido}
+                                    onChange={handleChange}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     Campo Obrigatório
@@ -190,6 +255,8 @@ const CadastrarProcesso = () => {
                                     required
                                     type="text"
                                     name="vara"
+                                    value={state.vara}
+                                    onChange={handleChange}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     Campo Obrigatório
@@ -208,12 +275,13 @@ const CadastrarProcesso = () => {
                             </Form.Label>
                                 <DatePicker
                                     className="date-picker"
-                                    selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
+                                    selected={startDateDistribuicao}
+                                    onChange={(date) => setStartDateDistribuicao(date)}
                                     locale="pt-BR"
                                     dateFormat="dd/MM/yyyy"
                                     type="date"
-                                    name="dataDistribuicao" 
+                                    name="dataDistribuicao"
+                                    value={state.dataDistribuicao}
                                 />
                             </Form.Group>
 
@@ -226,12 +294,13 @@ const CadastrarProcesso = () => {
                             </Form.Label>
                                 <DatePicker
                                     className="date-picker"
-                                    selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
+                                    selected={startDateAndamento}
+                                    onChange={(date) => setStartDateAndamento(date)}
                                     locale="pt-BR"
                                     dateFormat="dd/MM/yyyy"
                                     type="date"
-                                    name="dataUltimoAndamento" 
+                                    name="dataUltimoAndamento"
+                                    value={state.dataUltimoAndamento}
                                 />
                             </Form.Group>
 
@@ -250,6 +319,8 @@ const CadastrarProcesso = () => {
                                     required
                                     type="text"
                                     name="juiz"
+                                    value={state.juiz}
+                                    onChange={handleChange}
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     Campo Obrigatório
@@ -261,12 +332,23 @@ const CadastrarProcesso = () => {
                                     <Form.Check
                                     label="Sentença Proferida"
                                     name="sentencaProferida"
+                                    value={state.sentencaProferida}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, sentencaProferida: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                                 <Form.Group className="">
                                     <Form.Check
                                     label="Julgamento do Mérito"
                                     name="julgamentoMerito"
+                                    value={state.julgamentoMerito}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, julgamentoMerito: event.target.checked })
+                                      }
+
                                     />
                                 </Form.Group>
                                 
@@ -277,12 +359,22 @@ const CadastrarProcesso = () => {
                                     <Form.Check
                                     label="Procedência - 1ª Instância"
                                     name="procedenciaPrimeiraInstancia"
+                                    value={state.procedenciaPrimeiraInstancia}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, procedenciaPrimeiraInstancia: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                                 <Form.Group className="">
                                     <Form.Check
                                     label="Recurso para 2ª Instância"
                                     name="recursoSegundaInstancia"
+                                    value={state.recursoSegundaInstancia}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, recursoSegundaInstancia: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                             </Col>
@@ -299,6 +391,8 @@ const CadastrarProcesso = () => {
                                 <Form.Control
                                     type="text"
                                     name="desembargadorRelator"
+                                    value={state.desembargadorRelator}
+                                    onChange={handleChange}
                                 />
                             </Form.Group>
                             
@@ -307,12 +401,22 @@ const CadastrarProcesso = () => {
                                     <Form.Check
                                     label="Julgamento - 2ª Instância"
                                     name="julgamentoSegundaInstancia"
+                                    value={state.julgamentoSegundaInstancia}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, julgamentoSegundaInstancia: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                                 <Form.Group className="">
                                     <Form.Check
                                     label="Procedência - 2ª Instância"
                                     name="procedenciaSegundaInstancia"
+                                    value={state.procedenciaSegundaInstancia}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, procedenciaSegundaInstancia: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                                 
@@ -322,6 +426,11 @@ const CadastrarProcesso = () => {
                                     <Form.Check
                                     label="Recurso para o STJ"
                                     name="recursoStj"
+                                    value={state.recursoStj}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, recursoStj: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                             </Col>
@@ -339,6 +448,8 @@ const CadastrarProcesso = () => {
                                 <Form.Control
                                     type="text"
                                     name="ministroStjRelator"
+                                    value={state.ministroStjRelator}
+                                    onChange={handleChange}
                                 />
                             </Form.Group>
                             
@@ -347,12 +458,22 @@ const CadastrarProcesso = () => {
                                     <Form.Check
                                     label="Julgamento no STJ"
                                     name="julgamentoStj"
+                                    value={state.julgamentoStj}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, julgamentoStj: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                                 <Form.Group className="">
                                     <Form.Check
                                     label="Procedência no STJ"
                                     name="procedenciaStj"
+                                    value={state.procedenciaStj}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, procedenciaStj: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                                 
@@ -379,6 +500,8 @@ const CadastrarProcesso = () => {
                                 <Form.Control
                                     type="text"
                                     name="ministroStfRelator"
+                                    value={state.ministroStfRelator}
+                                    onChange={handleChange}
                                 />
                             </Form.Group>
                             
@@ -387,12 +510,22 @@ const CadastrarProcesso = () => {
                                     <Form.Check
                                     label="Julgamento no STF"
                                     name="julgamentoStf"
+                                    value={state.julgamentoStf}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, julgamentoStf: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                                 <Form.Group className="">
                                     <Form.Check
                                     label="Procedência no STF"
                                     name="procedenciaStf"
+                                    value={state.procedenciaStf}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, procedenciaStf: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                                 
@@ -402,6 +535,11 @@ const CadastrarProcesso = () => {
                                     <Form.Check
                                     label="Trânsito em Julgado"
                                     name="transitoEmJulgado"
+                                    value={state.transitoEmJulgado}
+                                    type='checkbox'
+                                    onChange={(event) =>
+                                        setState({ ...state, transitoEmJulgado: event.target.checked })
+                                      }
                                     />
                                 </Form.Group>
                             </Col>
@@ -417,13 +555,14 @@ const CadastrarProcesso = () => {
                                     Data do Trânsito em Julgado
                                 </Form.Label>
                                     <DatePicker
-                                        className="date-picker"
-                                        selected={startDate}
-                                        onChange={(date) => setStartDate(date)}
-                                        locale="pt-BR"
-                                        dateFormat="dd/MM/yyyy"
-                                        type="date"
-                                        name="dataTransitoEmJulgado" 
+                                    className="date-picker"
+                                    selected={startDateTransito}
+                                    onChange={(date) => setStartDateTransito(date)}
+                                    locale="pt-BR"
+                                    dateFormat="dd/MM/yyyy"
+                                    type="date"
+                                    name="dataTransitoEmJulgado"
+                                    value={state.dataTransitoEmJulgado}
                                     />
                             </Form.Group>
                         </Row>
