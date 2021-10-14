@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useHistory } from "react-router";
 import axios from "axios";
 
 import './CadastrarProcesso.css';
@@ -10,12 +10,12 @@ import DatePicker from "react-datepicker";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
 import ptBR from 'date-fns/locale/pt-BR';
 import { Modal, Form, InputGroup, FormControl, Button, Col, Row } from 'react-bootstrap';
-import { MdAddCircle } from 'react-icons/md';
-import { IconContext } from "react-icons";
+import { MdModeEdit } from 'react-icons/md';
 
-const CadastrarProcesso = () => {
+const EditarProcesso = (props) => {
 
     const history = useHistory();
+    const id = props.id
 
     const [state, setState] = useState({
         poloAtivo: "",
@@ -59,6 +59,16 @@ const CadastrarProcesso = () => {
     registerLocale('pt-BR', ptBR);
     setDefaultLocale('pt-BR');
 
+    useEffect(() => {
+        axios
+          .get(`https://ironrest.herokuapp.com/processos/${id}`)
+          .then((response) => {
+            console.log(response);
+            setState({ ...response.data });
+          })
+          .catch((err) => console.error(err));
+      }, [id]);
+
     function handleSubmit(event) {
         event.preventDefault();
 
@@ -66,14 +76,15 @@ const CadastrarProcesso = () => {
         if (form.checkValidity() === false) {
         event.stopPropagation();
         } else {setValidated(true)};*/
-        
+
         axios
-          .post("https://ironrest.herokuapp.com/processos", state)
+          .put(`https://ironrest.herokuapp.com/processos/${id}`, state)
           .then((response) => {
-            console.log(response);
-            history.push("/");
+            console.log(response)
+            setState({...response.data})
+            history.push("/")
           })
-          .catch((err) => console.error(err));
+          .catch((err) => console.error(err))
     }
     
     function handleChange(event) {
@@ -87,10 +98,7 @@ const CadastrarProcesso = () => {
         <div className='add-new-suit'>
 
             <button className="text-only-button" onClick={handleShow}>
-                <IconContext.Provider value={{ color: "#063970", size:"1.1em", className: 'react-icons' }}>
-                    Cadastrar novo processo&nbsp;
-                    <MdAddCircle />
-                </IconContext.Provider>
+                    <MdModeEdit />
             </button>
 
             <Modal
@@ -102,7 +110,7 @@ const CadastrarProcesso = () => {
 
                 <Modal.Header closeButton="true">
                     <Modal.Title >
-                        Cadastrar novo processo
+                        Editar processo
                     </Modal.Title>
                 </Modal.Header>
 
@@ -568,7 +576,7 @@ const CadastrarProcesso = () => {
                         </Row>
 
                             <Button type="submit" className="mb-3 submit-button">
-                                Cadastrar
+                                Salvar
                             </Button>
 
                     </Form>
@@ -584,4 +592,4 @@ const CadastrarProcesso = () => {
     );
 }
 
-export default CadastrarProcesso;
+export default EditarProcesso;
