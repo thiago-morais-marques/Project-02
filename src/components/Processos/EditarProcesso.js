@@ -15,6 +15,7 @@ import { MdModeEdit } from 'react-icons/md';
 const EditarProcesso = (props) => {
 
     const history = useHistory();
+    const id = props.id
 
     const [state, setState] = useState({
         poloAtivo: "",
@@ -60,13 +61,13 @@ const EditarProcesso = (props) => {
 
     useEffect(() => {
         axios
-          .get(`https://ironrest.herokuapp.com/processos/${props.id}`)
+          .get(`https://ironrest.herokuapp.com/processos/${id}`)
           .then((response) => {
             console.log(response);
             setState({ ...response.data });
           })
           .catch((err) => console.error(err));
-      }, [props.id]);
+      }, [id]);
 
     function handleSubmit(event) {
         event.preventDefault();
