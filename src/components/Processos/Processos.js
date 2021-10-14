@@ -1,9 +1,10 @@
-import React from "react";
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import './Processos.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Accordion } from 'react-bootstrap';
 
+import { Accordion } from 'react-bootstrap';
 import { GoLaw } from 'react-icons/go';
 import { MdModeEdit } from 'react-icons/md';
 import { RiDeleteBinLine } from 'react-icons/ri';
@@ -14,21 +15,32 @@ import CadastrarProcesso from "./CadastrarProcesso";
 
 const Processos = (props) => {
 
+  const [suits, setSuits] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://localhost:4000/processos')
+    .then((response) => {
+      console.log(response.data);
+      setSuits([...response.data]);
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+  }, []);   
+  
     return (
 
       <div>    
 
         <h1 className='page-title'>Processos</h1>
 
-        <div className='add-new-suit'>
-            <CadastrarProcesso />
-        </div>
+        <CadastrarProcesso />  
 
         <Accordion className='accordion'defaultActiveKey="0">
-          {props.processos.map((processo) => {
+          {suits.map((processo) => {
             return (
             
-            <Accordion.Item eventKey={processo._id} key={processo._id}>
+            <Accordion.Item eventKey={processo.processo} key={processo.processo}>
               
               <Accordion.Header>
                 <IconContext.Provider value={{ color: "#063970", size:"1.3em" }}>
@@ -53,6 +65,7 @@ const Processos = (props) => {
           )})};
         
         </Accordion>
+
       </div> 
       
     );

@@ -21,7 +21,7 @@ const Navbar = () => {
             src={ Logo }
             alt="Jurimetria" 
             width=''       
-            
+            className='logo'
           />
         </Link>
 

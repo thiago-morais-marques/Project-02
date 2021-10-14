@@ -1,4 +1,6 @@
-﻿[
+﻿{
+    "processos": 
+  [
     {
         "poloAtivo": "Adriana da Silva",
         "poloPassivo": "Plano de Saúde XYZ S.A.",
@@ -6,8 +8,8 @@
         "processo": "1010101-01.2019.0.01.0101",
         "vara": "1ª Vara Cível ",
         "pedido": "Cobertura de Exames",
-        "dataDistribuicao": "4/2/19",
-        "dataUltimoAndamento": "6/20/21",
+        "dataDistribuicao": "02/04/19",
+        "dataUltimoAndamento": "20/06/21",
         "juiz": "João dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -34,8 +36,8 @@
         "processo": "1010101-01.2020.0.01.0102",
         "vara": "Juizado Especial Cível",
         "pedido": "Cobertura de Cirurgia",
-        "dataDistribuicao": "7/5/20",
-        "dataUltimoAndamento": "10/3/21",
+        "dataDistribuicao": "07/05/20",
+        "dataUltimoAndamento": "03/10/21",
         "juiz": "Pedro dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -62,8 +64,8 @@
         "processo": "1010101-01.2018.0.01.0103",
         "vara": "2ª Vara Cível",
         "pedido": "Nulidade de Rescisão Unilateral",
-        "dataDistribuicao": "9/6/18",
-        "dataUltimoAndamento": "6/5/20",
+        "dataDistribuicao": "09/06/18",
+        "dataUltimoAndamento": "06/05/20",
         "juiz": "Maria dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -81,7 +83,7 @@
         "julgamentoStf": false,
         "procedenciaStf": false,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "6/5/20"
+        "dataTransitoEmJulgado": "06/05/20"
     },
     {
         "poloAtivo": "Daniela da Silva",
@@ -90,8 +92,8 @@
         "processo": "1010101-01.2008.0.01.0104",
         "vara": "Juizado Especial Cível",
         "pedido": "Cobertura de Home Care",
-        "dataDistribuicao": "5/20/08",
-        "dataUltimoAndamento": "9/4/21",
+        "dataDistribuicao": "20/05/08",
+        "dataUltimoAndamento": "09/04/21",
         "juiz": "Pedro dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -109,7 +111,7 @@
         "julgamentoStf": true,
         "procedenciaStf": true,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "9/4/21"
+        "dataTransitoEmJulgado": "09/04/21"
     },
     {
         "poloAtivo": "Eduardo da Silva",
@@ -118,8 +120,8 @@
         "processo": "1010101-01.2010.0.01.0105",
         "vara": "1ª Vara Cível ",
         "pedido": "Reparação de Danos",
-        "dataDistribuicao": "9/16/10",
-        "dataUltimoAndamento": "10/6/20",
+        "dataDistribuicao": "16/09/10",
+        "dataUltimoAndamento": "10/06/20",
         "juiz": "João dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -137,7 +139,7 @@
         "julgamentoStf": true,
         "procedenciaStf": false,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "10/6/20"
+        "dataTransitoEmJulgado": "10/06/20"
     },
     {
         "poloAtivo": "Eliane da Silva",
@@ -146,8 +148,8 @@
         "processo": "1010101-01.2017.0.01.0106",
         "vara": "Juizado Especial Cível",
         "pedido": "Revisão Contratual por Aumento Abusivo",
-        "dataDistribuicao": "1/10/17",
-        "dataUltimoAndamento": "7/18/21",
+        "dataDistribuicao": "01/10/17",
+        "dataUltimoAndamento": "18/07/21",
         "juiz": "Pedro dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -165,7 +167,7 @@
         "julgamentoStf": true,
         "procedenciaStf": true,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "7/18/21"
+        "dataTransitoEmJulgado": "18/07/21"
     },
     {
         "poloAtivo": "Fabiana da Silva",
@@ -174,8 +176,8 @@
         "processo": "1010101-01.2018.0.01.0107",
         "vara": "Juizado Especial Cível",
         "pedido": "Cobertura de Exames",
-        "dataDistribuicao": "2/2/18",
-        "dataUltimoAndamento": "4/11/20",
+        "dataDistribuicao": "02/02/18",
+        "dataUltimoAndamento": "11/04/20",
         "juiz": "Pedro dos Santos",
         "sentencaProferida": false,
         "julgamentoMerito": false,
@@ -202,8 +204,8 @@
         "processo": "1010101-01.2019.0.01.0108",
         "vara": "2ª Vara Cível",
         "pedido": "Cobertura de Cirurgia",
-        "dataDistribuicao": "9/14/19",
-        "dataUltimoAndamento": "6/14/21",
+        "dataDistribuicao": "14/09/19",
+        "dataUltimoAndamento": "14/04/21",
         "juiz": "Maria dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -230,8 +232,8 @@
         "processo": "1010101-01.2021.0.01.0109",
         "vara": "2ª Vara Cível",
         "pedido": "Restabelecimento de Rede Credenciada",
-        "dataDistribuicao": "3/29/21",
-        "dataUltimoAndamento": "10/1/21",
+        "dataDistribuicao": "29/03/21",
+        "dataUltimoAndamento": "10/01/21",
         "juiz": "Maria dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -258,8 +260,8 @@
         "processo": "1010101-01.2017.0.01.0110",
         "vara": "1ª Vara Cível ",
         "pedido": "Nulidade de Rescisão Unilateral",
-        "dataDistribuicao": "6/22/17",
-        "dataUltimoAndamento": "4/29/21",
+        "dataDistribuicao": "22/02/17",
+        "dataUltimoAndamento": "29/04/21",
         "juiz": "João dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -277,7 +279,7 @@
         "julgamentoStf": true,
         "procedenciaStf": true,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "4/29/21"
+        "dataTransitoEmJulgado": "29/04/21"
     },
     {
         "poloAtivo": "José Carlos da Silva",
@@ -286,8 +288,8 @@
         "processo": "1010101-01.2020.0.01.0111",
         "vara": "2ª Vara Cível",
         "pedido": "Reparação de Danos",
-        "dataDistribuicao": "8/24/20",
-        "dataUltimoAndamento": "5/26/21",
+        "dataDistribuicao": "24/08/20",
+        "dataUltimoAndamento": "26/05/21",
         "juiz": "Maria dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": false,
@@ -305,7 +307,7 @@
         "julgamentoStf": false,
         "procedenciaStf": false,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "5/26/21"
+        "dataTransitoEmJulgado": "26/05/21"
     },
     {
         "poloAtivo": "Kátia da Silva",
@@ -314,8 +316,8 @@
         "processo": "1010101-01.2004.0.01.0112",
         "vara": "Juizado Especial Cível",
         "pedido": "Revisão Contratual por Aumento Abusivo",
-        "dataDistribuicao": "11/27/04",
-        "dataUltimoAndamento": "10/28/19",
+        "dataDistribuicao": "27/11/04",
+        "dataUltimoAndamento": "29/10/19",
         "juiz": "Pedro dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -333,7 +335,7 @@
         "julgamentoStf": true,
         "procedenciaStf": false,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "10/28/19"
+        "dataTransitoEmJulgado": "29/10/19"
     },
     {
         "poloAtivo": "Liliane da Silva",
@@ -342,8 +344,8 @@
         "processo": "1010101-01.2012.0.01.0113",
         "vara": "2ª Vara Cível",
         "pedido": "Cobertura de Exames",
-        "dataDistribuicao": "10/13/12",
-        "dataUltimoAndamento": "5/24/21",
+        "dataDistribuicao": "13/10/12",
+        "dataUltimoAndamento": "24/05/21",
         "juiz": "Maria dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -361,7 +363,7 @@
         "julgamentoStf": true,
         "procedenciaStf": true,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "5/24/21"
+        "dataTransitoEmJulgado": "24/05/21"
     },
     {
         "poloAtivo": "Luis Fernando da Silva",
@@ -371,7 +373,7 @@
         "vara": "1ª Vara Cível ",
         "pedido": "Reparação de Danos",
         "dataDistribuicao": "12/12/15",
-        "dataUltimoAndamento": "8/8/20",
+        "dataUltimoAndamento": "08/08/20",
         "juiz": "João dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -389,7 +391,7 @@
         "julgamentoStf": true,
         "procedenciaStf": true,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "8/8/20"
+        "dataTransitoEmJulgado": "08/08/20"
     },
     {
         "poloAtivo": "Maria de Lourdes da Silva",
@@ -398,8 +400,8 @@
         "processo": "1010101-01.2019.0.01.0115",
         "vara": "2ª Vara Cível",
         "pedido": "Cobertura de Cirurgia",
-        "dataDistribuicao": "9/7/19",
-        "dataUltimoAndamento": "3/12/20",
+        "dataDistribuicao": "09/07/19",
+        "dataUltimoAndamento": "03/12/20",
         "juiz": "Maria dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -426,8 +428,8 @@
         "processo": "1010101-01.2020.0.01.0116",
         "vara": "2ª Vara Cível",
         "pedido": "Revisão Contratual por Aumento Abusivo",
-        "dataDistribuicao": "4/21/20",
-        "dataUltimoAndamento": "12/9/20",
+        "dataDistribuicao": "21/04/20",
+        "dataUltimoAndamento": "12/09/20",
         "juiz": "Maria dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -454,8 +456,8 @@
         "processo": "1010101-01.2020.0.01.0117",
         "vara": "Juizado Especial Cível",
         "pedido": "Reparação de Danos",
-        "dataDistribuicao": "8/18/21",
-        "dataUltimoAndamento": "10/3/21",
+        "dataDistribuicao": "18/08/21",
+        "dataUltimoAndamento": "10/03/21",
         "juiz": "Pedro dos Santos",
         "sentencaProferida": false,
         "julgamentoMerito": false,
@@ -482,8 +484,8 @@
         "processo": "1010101-01.2021.0.01.0118",
         "vara": "1ª Vara Cível ",
         "pedido": "Cobertura de Home Care",
-        "dataDistribuicao": "2/1/21",
-        "dataUltimoAndamento": "9/8/21",
+        "dataDistribuicao": "02/01/21",
+        "dataUltimoAndamento": "09/08/21",
         "juiz": "João dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": false,
@@ -501,7 +503,7 @@
         "julgamentoStf": false,
         "procedenciaStf": false,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "9/8/21"
+        "dataTransitoEmJulgado": "09/08/21"
     },
     {
         "poloAtivo": "Tathiana da Silva",
@@ -510,8 +512,8 @@
         "processo": "1010101-01.2011.0.01.0119",
         "vara": "Juizado Especial Cível",
         "pedido": "Restabelecimento de Rede Credenciada",
-        "dataDistribuicao": "5/3/11",
-        "dataUltimoAndamento": "8/15/20",
+        "dataDistribuicao": "05/03/11",
+        "dataUltimoAndamento": "15/08/20",
         "juiz": "Pedro dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": true,
@@ -538,8 +540,8 @@
         "processo": "1010101-01.2020.0.01.0120",
         "vara": "1ª Vara Cível ",
         "pedido": "Cobertura de Exames",
-        "dataDistribuicao": "10/30/20",
-        "dataUltimoAndamento": "2/5/21",
+        "dataDistribuicao": "30/10/20",
+        "dataUltimoAndamento": "02/05/21",
         "juiz": "Pedro dos Santos",
         "sentencaProferida": true,
         "julgamentoMerito": false,
@@ -557,6 +559,7 @@
         "julgamentoStf": false,
         "procedenciaStf": false,
         "transitoEmJulgado": true,
-        "dataTransitoEmJulgado": "2/5/21"
+        "dataTransitoEmJulgado": "02/05/21"
     }
-]
+  ]
+}   
