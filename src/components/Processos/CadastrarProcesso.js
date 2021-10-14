@@ -145,24 +145,44 @@ const CadastrarProcesso = () => {
                             </Form.Group>
 
                         </Row>
+                        <Row className="row mb-3">
+                            <Form.Group 
+                            as={Col} 
+                            md={inputSize} 
+                            >
+                            <Form.Label >
+                                Data de Distribuição
+                            </Form.Label>
+                                <DatePicker
+                                    className="date-picker"
+                                    selected={startDate}
+                                    onChange={(date) => setStartDate(date)}
+                                    locale="pt-BR"
+                                    dateFormat="dd/MM/yyyy"
+                                    type="date"
+                                    name="dataDistribuicao" 
+                                />
+                            </Form.Group>
 
-                        <Form.Group 
-                        as={Col} 
-                        md={inputSize} 
-                        >
-                         <Form.Label className="ml-6">
-                            Data
-                        </Form.Label>
-                        <DatePicker
-                            className="date-picker ml-6"
-                            selected={startDate}
-                            onChange={(date) => setStartDate(date)}
-                            locale="pt-BR"
-                            dateFormat="dd/MM/yyyy"
-                            type="date"
-                            name="dataDistribuicao" 
-                        />
-                        </Form.Group>
+                            <Form.Group 
+                            as={Col} 
+                            md={inputSize} 
+                            >
+                            <Form.Label >
+                                Data do Último Andamento
+                            </Form.Label>
+                                <DatePicker
+                                    className="date-picker"
+                                    selected={startDate}
+                                    onChange={(date) => setStartDate(date)}
+                                    locale="pt-BR"
+                                    dateFormat="dd/MM/yyyy"
+                                    type="date"
+                                    name="dataUltimoAndamento" 
+                                />
+                            </Form.Group>
+
+                        </Row>
                         <br/>
                         <br/>
                         <br/>
