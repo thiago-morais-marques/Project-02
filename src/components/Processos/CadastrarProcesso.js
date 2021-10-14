@@ -66,7 +66,8 @@ const CadastrarProcesso = () => {
         if (form.checkValidity() === false) {
         event.stopPropagation();
         } else {setValidated(true)};*/
-        
+        setValidated(true);
+
         axios
           .post("https://ironrest.herokuapp.com/processos", state)
           .then((response) => {

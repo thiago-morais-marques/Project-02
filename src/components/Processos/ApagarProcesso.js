@@ -1,9 +1,9 @@
-import { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import {  useEffect } from "react";
+import { useHistory, useParams } from "react-router-dom";
 import axios from "axios";
 
-function ApagarProcesso(props) {
-  const  id = props._id;
+function ApagarProcesso() {
+  const { id } = useParams();
   const history = useHistory();
 
   useEffect(() => {
@@ -13,7 +13,8 @@ function ApagarProcesso(props) {
       .catch((err) => console.error(err));
   }, [history, id]);
 
-  return <div>Deleting...</div>;
+  return (<div>Apagando...</div>)
+
 }
 
 export default ApagarProcesso;

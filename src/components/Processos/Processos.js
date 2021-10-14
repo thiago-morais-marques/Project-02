@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useHistory } from "react-router-dom";
+import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import './Processos.css';
@@ -7,25 +7,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Accordion } from 'react-bootstrap';
 import { GoLaw } from 'react-icons/go';
-import { RiDeleteBinLine } from 'react-icons/ri';
 import { IconContext } from "react-icons";
+import { RiDeleteBinLine } from 'react-icons/ri';
 
 import ProcessosDetalhes from "./ProcessosDetalhes";
 import CadastrarProcesso from "./CadastrarProcesso";
 import EditarProcesso from "./EditarProcesso"
-import DeleteModal from './DeleteModal';
-import ApagarProcesso from './ApagarProcesso';
+import DeleteModal from "./DeleteModal";
 
 
 const Processos = () => {
 
   const [suits, setSuits] = useState([]);
 
-  const [showModal, setShowModal] = useState(false);
-
   const history = useHistory();
 
-  const id = suits._id
+  const [showModal, setShowModal] = useState(false);
 
   function handleModalOpen() {
     setShowModal(true);
@@ -69,20 +66,27 @@ const Processos = () => {
                   </div>
                   <div className='edit-delete-icons'>
                     <EditarProcesso id={processo._id}/>
-                    <button className="text-only-button" >
-                        <RiDeleteBinLine 
-                          onClick={(event) => {
-                          event.preventDefault();
-                          handleModalOpen();
-                        }}
+                    <div>
+                        <a
+                            href="/"
+                            onClick={(event) => {
+                            event.preventDefault();
+                            handleModalOpen();
+                            }}
+                        >
+                            <RiDeleteBinLine />
+                        </a>
+
+                        <DeleteModal
+                        show={showModal}
+                        handleClose={handleModalClose}
+                        handleAction={() =>
+                          axios.delete(`https://ironrest.herokuapp.com/processos/${processo._id}`)
+                          .then(() => history.push("/processos"))
+                          .catch((err) => console.error(err))
+                        }
                         />
-                    </button>
-                    <DeleteModal
-                      show={showModal}
-                      handleClose={handleModalClose}
-                      handleAction={() => <ApagarProcesso/>}
-                    />
-         
+                    </div>
                   </div>
                 </IconContext.Provider>
                 </Accordion.Header>

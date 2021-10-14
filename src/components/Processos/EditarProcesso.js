@@ -15,7 +15,6 @@ import { MdModeEdit } from 'react-icons/md';
 const EditarProcesso = (props) => {
 
     const history = useHistory();
-    const id = props.id
 
     const [state, setState] = useState({
         poloAtivo: "",
@@ -61,13 +60,13 @@ const EditarProcesso = (props) => {
 
     useEffect(() => {
         axios
-          .get(`https://ironrest.herokuapp.com/processos/${id}`)
+          .get(`https://ironrest.herokuapp.com/processos/${props.id}`)
           .then((response) => {
             console.log(response);
             setState({ ...response.data });
           })
           .catch((err) => console.error(err));
-      }, [id]);
+      }, [props.id]);
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -76,13 +75,14 @@ const EditarProcesso = (props) => {
         if (form.checkValidity() === false) {
         event.stopPropagation();
         } else {setValidated(true)};*/
+        setValidated(true)
 
         axios
           .put(`https://ironrest.herokuapp.com/processos/${id}`, state)
           .then((response) => {
-            console.log(response)
-            setState({...response.data})
-            history.push("/")
+            console.log(response);
+            setState({...response.data});
+            history.push("/processos")
           })
           .catch((err) => console.error(err))
     }
