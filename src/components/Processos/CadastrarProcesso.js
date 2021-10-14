@@ -7,7 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { registerLocale, setDefaultLocale } from  "react-datepicker";
 import ptBR from 'date-fns/locale/pt-BR';
-import { Modal, Form, Button, Col, Row } from 'react-bootstrap';
+import { Modal, Form, InputGroup, FormControl, Button, Col, Row } from 'react-bootstrap';
 import { MdAddCircle } from 'react-icons/md';
 import { IconContext } from "react-icons";
 
@@ -78,7 +78,6 @@ const CadastrarProcesso = () => {
                                 <Form.Control
                                     required
                                     type="text"
-                                    placeholder="Pólo Ativo"
                                     name="poloAtivo"
                                 />
                                 <Form.Control.Feedback type="invalid">
@@ -97,7 +96,6 @@ const CadastrarProcesso = () => {
                                     required
                                     type="text"
                                     name="poloPassivo"
-                                    placeholder="Pólo Passivo"
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     Campo Obrigatório
@@ -113,13 +111,68 @@ const CadastrarProcesso = () => {
                             md={inputSize} 
                             >
                                 <Form.Label>
-                                    Juiz
+                                    Pólo do Cliente
                                 </Form.Label>
-                                <Form.Control 
-                                type="text" 
-                                placeholder="Juiz" 
-                                name="juiz"
-                                required 
+                                        <Form.Select >
+                                            <option value="Ativo">Ativo</option>
+                                            <option value="Passivo">Passivo</option>
+                                        </Form.Select>
+                                <Form.Control.Feedback type="invalid">
+                                    Campo Obrigatório
+                                </Form.Control.Feedback>
+                            </Form.Group>
+
+                            <Form.Group 
+                            as={Col} 
+                            md={inputSize} 
+                            >
+                                <Form.Label>
+                                    Número do Processo
+                                </Form.Label>
+
+                                <InputGroup bsPrefix="input-group-container">
+                                    <FormControl 
+                                    type="text" 
+                                    bsPrefix="input-01"
+                                    maxLength="7"
+                                    />
+                                        <InputGroup.Text>-</InputGroup.Text>
+                                    <FormControl 
+                                    type="text" 
+                                    bsPrefix="input-02"
+                                    maxLength="2"
+                                    />
+                                        <InputGroup.Text>.</InputGroup.Text>
+                                    <FormControl 
+                                    type="text" 
+                                    bsPrefix="input-03"
+                                    maxLength="4"
+                                    />
+                                        <InputGroup.Text>.0.01.</InputGroup.Text>
+                                    <FormControl 
+                                    type="text" 
+                                    bsPrefix="input-04"
+                                    maxLength="4"
+                                    />
+                                </InputGroup>
+
+                            </Form.Group>
+
+                        </Row>
+
+                        <Row className="mb-3">
+                            
+                            <Form.Group 
+                            as={Col} 
+                            md={inputSize} 
+                            >
+                                <Form.Label>
+                                    Pedido
+                                </Form.Label>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    name="pedido"
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     Campo Obrigatório
@@ -131,13 +184,12 @@ const CadastrarProcesso = () => {
                             md={inputSize} 
                             >
                                 <Form.Label>
-                                    Pedido
+                                    Vara
                                 </Form.Label>
-                                <Form.Control 
-                                type="text" 
-                                placeholder="Pedido" 
-                                name="pedido"
-                                required 
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    name="vara"
                                 />
                                 <Form.Control.Feedback type="invalid">
                                     Campo Obrigatório
@@ -145,6 +197,7 @@ const CadastrarProcesso = () => {
                             </Form.Group>
 
                         </Row>
+
                         <Row className="row mb-3">
                             <Form.Group 
                             as={Col} 
@@ -183,32 +236,238 @@ const CadastrarProcesso = () => {
                             </Form.Group>
 
                         </Row>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
-                        <br/>
+                        
+                        <Row className="mb-3">
+                            
+                            <Form.Group 
+                            as={Col} 
+                            md={inputSize} 
+                            >
+                                <Form.Label>
+                                    Juiz
+                                </Form.Label>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    name="juiz"
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    Campo Obrigatório
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                            
+                            <Col xs={2} className="mt-4">
+                                <Form.Group >
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                                <Form.Group className="">
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                                
+                            </Col>
+                            <Col className="mt-4">
+                                <Form.Group className="">
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                                <Form.Group className="">
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                            </Col>
+                        </Row>
+                        <Row className="mb-3">
+                            
+                            <Form.Group 
+                            as={Col} 
+                            md={inputSize} 
+                            >
+                                <Form.Label>
+                                    Juiz
+                                </Form.Label>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    name="juiz"
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    Campo Obrigatório
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                            
+                            <Col xs={2} className="mt-4">
+                                <Form.Group >
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                                <Form.Group className="">
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                                
+                            </Col>
+                            <Col className="mt-4">
+                                <Form.Group className="">
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                            </Col>
+                        </Row>
 
-                        <Form.Group className="mb-3 ml-6">
-                            <Form.Check
-                            required
-                            label="Agree to terms and conditions"
-                            feedback="You must agree before submitting."
-                            feedbackType="invalid"
-                            />
-                        </Form.Group>
+                        <Row className="mb-3">
+                            
+                            <Form.Group 
+                            as={Col} 
+                            md={inputSize} 
+                            >
+                                <Form.Label>
+                                    Juiz
+                                </Form.Label>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    name="juiz"
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    Campo Obrigatório
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                            
+                            <Col xs={2} className="mt-4">
+                                <Form.Group >
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                                <Form.Group className="">
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                                
+                            </Col>
+                            <Col className="mt-4">
+                                <Form.Group className="">
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                            </Col>
+                        </Row>
 
-                        <Button type="submit" className="ml-6">
-                            Cadastrar
-                        </Button>
+                        <Row className="mb-3">
+                            
+                            <Form.Group 
+                            as={Col} 
+                            md={inputSize} 
+                            >
+                                <Form.Label>
+                                    Juiz
+                                </Form.Label>
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    name="juiz"
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    Campo Obrigatório
+                                </Form.Control.Feedback>
+                            </Form.Group>
+                            
+                            <Col xs={2} className="mt-4">
+                                <Form.Group >
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                                <Form.Group className="">
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                                
+                            </Col>
+                            <Col className="mt-4">
+                                <Form.Group className="">
+                                    <Form.Check
+                                    required
+                                    label="Sentença Proferida"
+                                    feedback="You must agree before submitting."
+                                    feedbackType="invalid"
+                                    />
+                                </Form.Group>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <Form.Group 
+                                className="mb-4"
+                                as={Col} 
+                                md={inputSize} 
+                                >
+                                <Form.Label >
+                                    Data do Último Andamento
+                                </Form.Label>
+                                    <DatePicker
+                                        className="date-picker"
+                                        selected={startDate}
+                                        onChange={(date) => setStartDate(date)}
+                                        locale="pt-BR"
+                                        dateFormat="dd/MM/yyyy"
+                                        type="date"
+                                        name="dataUltimoAndamento" 
+                                    />
+                            </Form.Group>
+                        </Row>
+
+                            <Button type="submit" className="mb-3 submit-button">
+                                Cadastrar
+                            </Button>
 
                     </Form>
 
