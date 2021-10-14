@@ -2,21 +2,26 @@ import { useState } from "react";
 
 import './CadastrarProcesso.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'antd/dist/antd.css';
+import "react-datepicker/dist/react-datepicker.css";
 
+import DatePicker from "react-datepicker";
+import { registerLocale, setDefaultLocale } from  "react-datepicker";
+import ptBR from 'date-fns/locale/pt-BR';
 import { Modal, Form, Button, Col, Row } from 'react-bootstrap';
-import { DatePicker } from 'antd';
 import { MdAddCircle } from 'react-icons/md';
 import { IconContext } from "react-icons";
 
-const CadastrarProcesso = (props) => {
+const CadastrarProcesso = () => {
 
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
     const [validated, setValidated] = useState(false);
+
+    const [startDate, setStartDate] = useState(null);
+    registerLocale('pt-BR', ptBR);
+    setDefaultLocale('pt-BR');
 
     const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -26,13 +31,8 @@ const CadastrarProcesso = (props) => {
         }
 
         setValidated(true);
-    };
+    } 
 
-    function onChange(date, dateString) {
-        console.log(date, dateString);
-      }
-
-    //const dateFormatList = ['DD/MM/YYYY', 'DD/MM/YY'];
     const inputSize = 4;
 
     return (
@@ -146,7 +146,33 @@ const CadastrarProcesso = (props) => {
 
                         </Row>
 
-                        <DatePicker onChange={onChange} />
+                        <Form.Group 
+                        as={Col} 
+                        md={inputSize} 
+                        >
+                         <Form.Label>
+                            Data
+                        </Form.Label>
+                        <DatePicker
+                            selected={startDate} 
+                            onChange={(date) => setStartDate(date)}
+                            locale="pt-BR"
+                            dateFormat="dd/MM/yyyy"
+                        />
+                        </Form.Group>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
 
                         <Form.Group className="mb-3 ml-6">
                             <Form.Check
