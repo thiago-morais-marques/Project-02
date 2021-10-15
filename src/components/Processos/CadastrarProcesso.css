@@ -34,7 +34,27 @@
     padding: 0.375rem 0.75rem;
 }
 
-.input-group-container {
+.input-01 {
+    min-width: 10% !important;
+    width: 20% !important;
+}
+
+.input-02 {
+    min-width: 1% !important;
+    width: 1% !important;
+}
+
+.input-03 {
+    min-width: 10% !important;
+    width: 10% !important;
+}
+
+.input-04 {
+    min-width: 10% !important;
+    width: 10% !important;
+}
+
+/*.input-group-container {
     display: flex;
 }
 
@@ -96,7 +116,7 @@
     border: 1px solid #ced4da;
     border-radius: 0.25rem;
     width: 5rem;
-}
+}*/
 
 .submit-button {
     margin-left: 45%;

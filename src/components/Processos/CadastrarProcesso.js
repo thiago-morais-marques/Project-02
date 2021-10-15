@@ -9,7 +9,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
 import ptBR from 'date-fns/locale/pt-BR';
-import { Modal, Form, InputGroup, FormControl, Button, Col, Row } from 'react-bootstrap';
+import { Modal, Form, Button, Col, Row } from 'react-bootstrap';
 import { MdAddCircle } from 'react-icons/md';
 import { IconContext } from "react-icons";
 
@@ -95,7 +95,7 @@ const CadastrarProcesso = () => {
     function handleChange(event) {
     setState({ ...state, [event.target.name]: event.target.value});
     }
-   
+
     const inputSize = 4;
 
     return (
@@ -201,41 +201,20 @@ const CadastrarProcesso = () => {
                             md={inputSize} 
                             >
                                 <Form.Label>
-                                    Número do Processo
+                                    Processo
                                 </Form.Label>
-
-                                <InputGroup 
-                                bsPrefix="input-group-container"
-                                type="text"
-                                name="processo"
-                                value={state.processo}
-                                onChange={handleChange}
-                                >
-                                    <FormControl 
-                                    type="text" 
-                                    bsPrefix="input-01"
-                                    maxLength="7"
-                                    />
-                                        <InputGroup.Text>-</InputGroup.Text>
-                                    <FormControl 
-                                    type="text" 
-                                    bsPrefix="input-02"
-                                    maxLength="2"
-                                    />
-                                        <InputGroup.Text>.</InputGroup.Text>
-                                    <FormControl 
-                                    type="text" 
-                                    bsPrefix="input-03"
-                                    maxLength="4"
-                                    />
-                                        <InputGroup.Text>.0.01.</InputGroup.Text>
-                                    <FormControl 
-                                    type="text" 
-                                    bsPrefix="input-04"
-                                    maxLength="4"
-                                    />
-                                </InputGroup>
-
+                                <Form.Control
+                                    required
+                                    type="text"
+                                    name="processo"
+                                    value={state.processo}
+                                    onChange={handleChange}
+                                    placeholder="0000000-00.0000.0.00.0000"
+                                    maxLength={24}
+                                />
+                                <Form.Control.Feedback type="invalid">
+                                    Campo Obrigatório
+                                </Form.Control.Feedback>
                             </Form.Group>
 
                         </Row>
