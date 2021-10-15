@@ -55,7 +55,7 @@ const CadastrarProcesso = () => {
     const [startDateDistribuicao, setStartDateDistribuicao] = useState(new Date());
     const [startDateAndamento, setStartDateAndamento] = useState(new Date());
     const [startDateTransito, setStartDateTransito] = useState(new Date());
-
+    console.log(startDateTransito, startDateAndamento, startDateTransito)
     registerLocale('pt-BR', ptBR);
     setDefaultLocale('pt-BR');
 
@@ -72,14 +72,17 @@ const CadastrarProcesso = () => {
           .post("https://ironrest.herokuapp.com/processos", state)
           .then((response) => {
             console.log(response);
-            history.push("/");
+            history.push("/processos");
           })
           .catch((err) => console.error(err));
     }
     
     function handleChange(event) {
-    setState({ ...state, [event.target.name]: event.target.value });
+    setState({ ...state, [event.target.name]: event.target.value, dataTransitoEmJulgado: startDateTransito, 
+        dataUltimoAndamento: startDateAndamento, dataDistribuicao: startDateDistribuicao });
+        console.log(state)
     }
+   
 
     const inputSize = 4;
 

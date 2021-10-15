@@ -15,7 +15,7 @@ import { MdModeEdit } from 'react-icons/md';
 const EditarProcesso = (props) => {
 
     const history = useHistory();
-    const id = props.id
+    const id = props.id;
 
     const [state, setState] = useState({
         poloAtivo: "",
@@ -60,6 +60,7 @@ const EditarProcesso = (props) => {
     setDefaultLocale('pt-BR');
 
     useEffect(() => {
+
         axios
           .get(`https://ironrest.herokuapp.com/processos/${id}`)
           .then((response) => {
@@ -71,19 +72,26 @@ const EditarProcesso = (props) => {
 
     function handleSubmit(event) {
         event.preventDefault();
-
+        console.log(state)
         /*const form = event.currentTarget;
         if (form.checkValidity() === false) {
         event.stopPropagation();
         } else {setValidated(true)};*/
-        setValidated(true)
+        //setValidated(true)
+        delete state._id;
+
+        const dataDistribuicao = new Date(startDateDistribuicao);
+        const dataUltimoAndamento = new Date(startDateAndamento);
+        const dataTransitoEmJulgado = new Date(startDateTransito);
+    
+        console.log(dataDistribuicao, dataUltimoAndamento, dataTransitoEmJulgado)
 
         axios
-          .put(`https://ironrest.herokuapp.com/processos/${id}`, state)
+          .put(`https://ironrest.herokuapp.com/processos/${id}`, {...state, dataDistribuicao, dataUltimoAndamento, dataTransitoEmJulgado})
           .then((response) => {
             console.log(response);
-            setState({...response.data});
-            history.push("/processos")
+            //history.push("/")
+            document.location.reload(true)
           })
           .catch((err) => console.error(err))
     }
@@ -118,7 +126,7 @@ const EditarProcesso = (props) => {
                 <Modal.Body>
                     <Form 
                     className="modal-body ml-6" 
-                    noValidate validated={validated} 
+                    //noValidate validated={validated} 
                     onSubmit={handleSubmit}
                     >
 

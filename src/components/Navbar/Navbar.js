@@ -1,8 +1,9 @@
 import React from 'react';
-import 'bulma/css/bulma.css';
-import './Navbar.css';
 import Logo from './logo.png';
 import { Link } from 'react-router-dom';
+
+import 'bulma/css/bulma.css';
+import './Navbar.css';
 
 const Navbar = () => {
   return (
