@@ -128,3 +128,7 @@ input[type="color"]:focus,
 .form-control:focus {
     box-shadow: none;
   }
+
+.select {
+    color:grey;
+}

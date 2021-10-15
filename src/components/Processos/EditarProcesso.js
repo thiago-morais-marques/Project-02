@@ -199,6 +199,7 @@ const EditarProcesso = (props) => {
                                             value={state.poloCliente}
                                             onChange={handleChange}
                                         >
+                                            <option className="select">Selecione o Pólo do Cliente</option>
                                             <option value="Ativo">Ativo</option>
                                             <option value="Passivo">Passivo</option>
                                         </Form.Select>
