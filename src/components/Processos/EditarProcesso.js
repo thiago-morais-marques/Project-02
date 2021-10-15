@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useHistory } from "react-router";
+//import { useHistory } from "react-router";
 import axios from "axios";
 
 import './CadastrarProcesso.css';
@@ -9,12 +9,13 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { registerLocale, setDefaultLocale } from "react-datepicker";
 import ptBR from 'date-fns/locale/pt-BR';
+import moment from "moment";
 import { Modal, Form, InputGroup, FormControl, Button, Col, Row } from 'react-bootstrap';
 import { MdModeEdit } from 'react-icons/md';
 
 const EditarProcesso = (props) => {
 
-    const history = useHistory();
+    //const history = useHistory();
     const id = props.id;
 
     const [state, setState] = useState({
@@ -46,12 +47,6 @@ const EditarProcesso = (props) => {
         dataTransitoEmJulgado: null
       });
 
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
-    const [validated, setValidated] = useState(false);
-
     const [startDateDistribuicao, setStartDateDistribuicao] = useState(new Date());
     const [startDateAndamento, setStartDateAndamento] = useState(new Date());
     const [startDateTransito, setStartDateTransito] = useState(new Date());
@@ -59,13 +54,27 @@ const EditarProcesso = (props) => {
     registerLocale('pt-BR', ptBR);
     setDefaultLocale('pt-BR');
 
-    useEffect(() => {
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
 
+    const [validated, setValidated] = useState(false);
+
+    const inputSize = 4;
+
+    useEffect(() => {
+        
         axios
           .get(`https://ironrest.herokuapp.com/processos/${id}`)
           .then((response) => {
             console.log(response);
             setState({ ...response.data });
+            setStartDateDistribuicao(new Date(response.data.dataDistribuicao));
+            setStartDateAndamento(new Date(response.data.dataUltimoAndamento));
+            setStartDateTransito(new Date(response.data.dataTransitoEmJulgado));
+            console.log(moment(response.data.dataDistribuicao, 'DD/MM/YY', true).format());
+            console.log(response.data.dataUltimoAndamento);
+            console.log(response.data.dataTransitoEmJulgado);
           })
           .catch((err) => console.error(err));
       }, [id]);
@@ -73,34 +82,36 @@ const EditarProcesso = (props) => {
     function handleSubmit(event) {
         event.preventDefault();
         console.log(state)
-        /*const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-        event.stopPropagation();
-        } else {setValidated(true)};*/
-        //setValidated(true)
+ 
         delete state._id;
 
-        const dataDistribuicao = new Date(startDateDistribuicao);
-        const dataUltimoAndamento = new Date(startDateAndamento);
-        const dataTransitoEmJulgado = new Date(startDateTransito);
+        let dataDistribuicao = new Date(startDateDistribuicao);
+        let dataUltimoAndamento = new Date(startDateAndamento);
+        let dataTransitoEmJulgado = new Date(startDateTransito);
     
         console.log(dataDistribuicao, dataUltimoAndamento, dataTransitoEmJulgado)
 
-        axios
-          .put(`https://ironrest.herokuapp.com/processos/${id}`, {...state, dataDistribuicao, dataUltimoAndamento, dataTransitoEmJulgado})
-          .then((response) => {
-            console.log(response);
-            //history.push("/")
-            document.location.reload(true)
-          })
-          .catch((err) => console.error(err))
+        setValidated(true)
+
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+        event.stopPropagation();
+        } else {
+            axios
+            .put(`https://ironrest.herokuapp.com/processos/${id}`, 
+            {...state, dataDistribuicao, dataUltimoAndamento, dataTransitoEmJulgado})
+            .then((response) => {
+                console.log(response);
+                //history.push("/")
+                document.location.reload(true)
+            })
+            .catch((err) => console.error(err))
+        }
     }
     
     function handleChange(event) {
     setState({ ...state, [event.target.name]: event.target.value });
     }
-
-    const inputSize = 4;
 
     return (
 
@@ -126,7 +137,7 @@ const EditarProcesso = (props) => {
                 <Modal.Body>
                     <Form 
                     className="modal-body ml-6" 
-                    //noValidate validated={validated} 
+                    noValidate validated={validated} 
                     onSubmit={handleSubmit}
                     >
 

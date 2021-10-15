@@ -11,7 +11,6 @@ const Navbar = () => {
     <nav 
       className="navbar is-white" 
       role="navigation" 
-      aria-label="main navigation"
     >
       <div className="navbar-brand">
         <Link 
@@ -25,23 +24,9 @@ const Navbar = () => {
             className='logo'
           />
         </Link>
-
-        <Link 
-          role="button" 
-          className="navbar-burger" 
-          aria-label="menu" 
-          aria-expanded="false" 
-          data-target="navbarBasicExample" 
-          to="/"
-        >
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-          <span aria-hidden="true"></span>
-        </Link>
       </div>
 
       <div 
-        id="navbarBasicExample" 
         className="navbar-menu"
       >
         <div className="navbar-start">

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+//import { useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 import './Processos.css';
@@ -20,7 +20,7 @@ const Processos = () => {
 
   const [suits, setSuits] = useState([]);
 
-  const history = useHistory();
+  //const history = useHistory();
 
   const [showModal, setShowModal] = useState(false);
 
@@ -82,7 +82,7 @@ const Processos = () => {
                         handleClose={handleModalClose}
                         handleAction={() =>
                           axios.delete(`https://ironrest.herokuapp.com/processos/${processo._id}`)
-                          .then(() => history.push("/processos"))
+                          .then(() => document.location.reload(true))
                           .catch((err) => console.error(err))
                         }
                         />
@@ -97,13 +97,13 @@ const Processos = () => {
                 </Accordion.Body>
 
               </Accordion.Item>
-          )})};
+          )})}
         
         </Accordion>
 
       </div> 
       
-    );
+    )
 }
 
 

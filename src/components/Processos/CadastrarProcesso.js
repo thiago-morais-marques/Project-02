@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+//import { useHistory } from "react-router-dom";
 import axios from "axios";
 
 import './CadastrarProcesso.css';
@@ -15,7 +15,11 @@ import { IconContext } from "react-icons";
 
 const CadastrarProcesso = () => {
 
-    const history = useHistory();
+    //const history = useHistory();
+
+    const dateInput = 'Fri Oct 15 2021 11:22:48 GMT-0300';
+
+    console.log(new Date(dateInput).toLocaleDateString('pt-BR'))
 
     const [state, setState] = useState({
         poloAtivo: "",
@@ -62,28 +66,36 @@ const CadastrarProcesso = () => {
     function handleSubmit(event) {
         event.preventDefault();
 
-        /*const form = event.currentTarget;
-        if (form.checkValidity() === false) {
-        event.stopPropagation();
-        } else {setValidated(true)};*/
+        console.log(state)
+
+        let dataDistribuicao = new Date(startDateDistribuicao).toLocaleDateString('pt-BR');
+        let dataUltimoAndamento = new Date(startDateAndamento).toLocaleDateString('pt-BR');
+        let dataTransitoEmJulgado = new Date(startDateTransito).toLocaleDateString('pt-BR');
+    
+        console.log(dataDistribuicao, dataUltimoAndamento, dataTransitoEmJulgado)
+
         setValidated(true);
 
-        axios
-          .post("https://ironrest.herokuapp.com/processos", state)
-          .then((response) => {
-            console.log(response);
-            history.push("/processos");
-          })
-          .catch((err) => console.error(err));
+        const form = event.currentTarget;
+        if (form.checkValidity() === false) {
+        event.stopPropagation();
+        } else {
+            axios
+            .post("https://ironrest.herokuapp.com/processos",
+            {...state, dataDistribuicao, dataUltimoAndamento, dataTransitoEmJulgado})
+            .then((response) => {
+                console.log(response);
+                document.location.reload(true)
+                //history.push("/processos");
+            })
+            .catch((err) => console.error(err));
+        }
     }
     
     function handleChange(event) {
-    setState({ ...state, [event.target.name]: event.target.value, dataTransitoEmJulgado: startDateTransito, 
-        dataUltimoAndamento: startDateAndamento, dataDistribuicao: startDateDistribuicao });
-        console.log(state)
+    setState({ ...state, [event.target.name]: event.target.value});
     }
    
-
     const inputSize = 4;
 
     return (
@@ -282,7 +294,7 @@ const CadastrarProcesso = () => {
                                     selected={startDateDistribuicao}
                                     onChange={(date) => setStartDateDistribuicao(date)}
                                     locale="pt-BR"
-                                    dateFormat="dd/MM/yyyy"
+                                    dateFormat="dd/MM/yy"
                                     type="date"
                                     name="dataDistribuicao"
                                     value={state.dataDistribuicao}
@@ -301,7 +313,7 @@ const CadastrarProcesso = () => {
                                     selected={startDateAndamento}
                                     onChange={(date) => setStartDateAndamento(date)}
                                     locale="pt-BR"
-                                    dateFormat="dd/MM/yyyy"
+                                    dateFormat="dd/MM/yy"
                                     type="date"
                                     name="dataUltimoAndamento"
                                     value={state.dataUltimoAndamento}
@@ -563,7 +575,7 @@ const CadastrarProcesso = () => {
                                     selected={startDateTransito}
                                     onChange={(date) => setStartDateTransito(date)}
                                     locale="pt-BR"
-                                    dateFormat="dd/MM/yyyy"
+                                    dateFormat="dd/MM/yy"
                                     type="date"
                                     name="dataTransitoEmJulgado"
                                     value={state.dataTransitoEmJulgado}
