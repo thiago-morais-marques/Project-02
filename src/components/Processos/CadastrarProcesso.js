@@ -201,7 +201,7 @@ const CadastrarProcesso = () => {
                             md={inputSize} 
                             >
                                 <Form.Label>
-                                    Processo
+                                    Número do Processo
                                 </Form.Label>
                                 <Form.Control
                                     required
