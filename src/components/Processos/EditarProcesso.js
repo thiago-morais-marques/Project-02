@@ -25,8 +25,8 @@ const EditarProcesso = (props) => {
         processo: "",
         vara: "",
         pedido: "",
-        dataDistribuicao: null,
-        dataUltimoAndamento: null,
+        dataDistribuicao: undefined,
+        dataUltimoAndamento: undefined,
         juiz: "",
         sentencaProferida: false,
         julgamentoMerito: false,
@@ -44,7 +44,7 @@ const EditarProcesso = (props) => {
         julgamentoStf: false,
         procedenciaStf: false,
         transitoEmJulgado: false,
-        dataTransitoEmJulgado: null
+        dataTransitoEmJulgado: undefined
       });
 
     const [startDateDistribuicao, setStartDateDistribuicao] = useState(new Date());
@@ -69,27 +69,24 @@ const EditarProcesso = (props) => {
           .then((response) => {
             console.log(response);
             setState({ ...response.data });
-            setStartDateDistribuicao(new Date(response.data.dataDistribuicao));
-            setStartDateAndamento(new Date(response.data.dataUltimoAndamento));
-            setStartDateTransito(new Date(response.data.dataTransitoEmJulgado));
-            console.log(moment(response.data.dataDistribuicao, 'DD/MM/YY', true).format());
-            console.log(response.data.dataUltimoAndamento);
-            console.log(response.data.dataTransitoEmJulgado);
+            console.log(new Date(moment(response.data.dataDistribuicao, 'DD/MM/YYYY', true).format()).toLocaleDateString('pt-BR'));
+            //console.log(response.data.dataUltimoAndamento);
+            //console.log(response.data.dataTransitoEmJulgado);
           })
           .catch((err) => console.error(err));
       }, [id]);
 
     function handleSubmit(event) {
         event.preventDefault();
-        console.log(state)
+        //console.log(state)
  
         delete state._id;
 
-        let dataDistribuicao = new Date(startDateDistribuicao);
-        let dataUltimoAndamento = new Date(startDateAndamento);
-        let dataTransitoEmJulgado = new Date(startDateTransito);
+        let dataDistribuicao = new Date(startDateDistribuicao).toLocaleDateString("pt-BR");
+        let dataUltimoAndamento = new Date(startDateAndamento).toLocaleDateString("pt-BR");
+        let dataTransitoEmJulgado = new Date(startDateTransito).toLocaleDateString("pt-BR");
     
-        console.log(dataDistribuicao, dataUltimoAndamento, dataTransitoEmJulgado)
+        //console.log(dataDistribuicao, dataUltimoAndamento, dataTransitoEmJulgado)
 
         setValidated(true)
 
@@ -110,7 +107,10 @@ const EditarProcesso = (props) => {
     }
     
     function handleChange(event) {
-    setState({ ...state, [event.target.name]: event.target.value });
+    setState({ ...state, [event.target.name]: event.target.value,
+    dataDistribuicao: startDateDistribuicao,
+    dataUltimoAndamento: startDateAndamento,
+    dataTransitoEmJulgado: startDateTransito});
     }
 
     return (
@@ -304,13 +304,18 @@ const EditarProcesso = (props) => {
                                 <DatePicker
                                     className="date-picker"
                                     selected={startDateDistribuicao}
-                                    onChange={(date) => setStartDateDistribuicao(date)}
+                                    onChange={(date) => {
+                                    setStartDateDistribuicao(date);
+                                    state.dataDistribuicao = startDateDistribuicao
+                                    }}
                                     locale="pt-BR"
                                     dateFormat="dd/MM/yyyy"
                                     type="date"
                                     name="dataDistribuicao"
                                     value={state.dataDistribuicao}
                                 />
+                                {console.log(startDateDistribuicao)}
+                                {console.log(state.dataDistribuicao)}
                             </Form.Group>
 
                             <Form.Group 
@@ -323,7 +328,10 @@ const EditarProcesso = (props) => {
                                 <DatePicker
                                     className="date-picker"
                                     selected={startDateAndamento}
-                                    onChange={(date) => setStartDateAndamento(date)}
+                                    onChange={(date) => {
+                                        setStartDateAndamento(date);
+                                        state.dataUltimoAndamento = startDateAndamento;
+                                    }}
                                     locale="pt-BR"
                                     dateFormat="dd/MM/yyyy"
                                     type="date"
@@ -585,7 +593,10 @@ const EditarProcesso = (props) => {
                                     <DatePicker
                                     className="date-picker"
                                     selected={startDateTransito}
-                                    onChange={(date) => setStartDateTransito(date)}
+                                    onChange={(date) => {
+                                        setStartDateTransito(date);
+                                        state.dataTransitoEmJulgado = startDateTransito;
+                                    }}
                                     locale="pt-BR"
                                     dateFormat="dd/MM/yyyy"
                                     type="date"

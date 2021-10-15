@@ -294,7 +294,7 @@ const CadastrarProcesso = () => {
                                     selected={startDateDistribuicao}
                                     onChange={(date) => setStartDateDistribuicao(date)}
                                     locale="pt-BR"
-                                    dateFormat="dd/MM/yy"
+                                    dateFormat="dd/MM/yyyy"
                                     type="date"
                                     name="dataDistribuicao"
                                     value={state.dataDistribuicao}
@@ -313,7 +313,7 @@ const CadastrarProcesso = () => {
                                     selected={startDateAndamento}
                                     onChange={(date) => setStartDateAndamento(date)}
                                     locale="pt-BR"
-                                    dateFormat="dd/MM/yy"
+                                    dateFormat="dd/MM/yyyy"
                                     type="date"
                                     name="dataUltimoAndamento"
                                     value={state.dataUltimoAndamento}
@@ -575,7 +575,7 @@ const CadastrarProcesso = () => {
                                     selected={startDateTransito}
                                     onChange={(date) => setStartDateTransito(date)}
                                     locale="pt-BR"
-                                    dateFormat="dd/MM/yy"
+                                    dateFormat="dd/MM/yyyy"
                                     type="date"
                                     name="dataTransitoEmJulgado"
                                     value={state.dataTransitoEmJulgado}
