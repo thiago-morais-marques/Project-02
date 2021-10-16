@@ -15,7 +15,7 @@ On the "Processos" page you will find a list of lawsuits, where the data extract
 
 Functions to create, edit and delete lawsuits are available and working.
 
-On the "Relatórios" page, which has not yet been created, I intend to display graphics of the data of the lawsuits held in the page "Processos".
+On the "Relatórios" page, which has not yet been created, I intend to display graphs of the data of the lawsuits held in the page "Processos".
 
 Link to the app: https://jurimetria.netlify.app/
 
