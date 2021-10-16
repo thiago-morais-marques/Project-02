@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# JURIMETRIA
+![alt text](https://github.com/THGMMX/Project-02/blob/main/src/components/Navbar/logo.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### INTRODUCTION
+This is an app project that aims to extract statistical data from lawsuits to provide strategic data for lawyers.
 
-## Available Scripts
+In its development I aimed to implement CRUD requests to extract data from API where information about lawsuits is found.
 
-In the project directory, you can run:
+I also intend to implement a page for reports, where graphs of the data extracted from the lawsuits page will be generated.
 
-### `npm start`
+### GETTING STARTED
+As it is based on brazilian lawsuits, the app is in portuguese.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+On the "Processos" page you will find a list of lawsuits, where the data extracted from the API are stored.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Functions to create, edit and delete lawsuits are available and working.
 
-### `npm test`
+On the "Relatórios" page, which has not yet been created, I intend to display graphics of the data of the lawsuits held in the page "Processos".
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Link to the app: https://jurimetria.netlify.app/
 
-### `npm run build`
+Link to the slide presentation: https://docs.google.com/presentation/d/e/2PACX-1vTMRKEk9zfvUqfiDvPsKNhidBN-qfHrRIyze9GazIh2JNnwaAf1MKc9tc-vdV_SIAJBv1SCK5CjiMlX/pub?start=false&loop=false&delayms=3000
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### ABOUT THE AUTHOR
+Thiago Morais Marques
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+You can find me on [LinkedIn](https://www.linkedin.com/in/thiago-morais-marques). 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
