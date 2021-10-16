@@ -47,9 +47,9 @@ const EditarProcesso = (props) => {
         dataTransitoEmJulgado: undefined
       });
 
-    const [startDateDistribuicao, setStartDateDistribuicao] = useState(new Date());
-    const [startDateAndamento, setStartDateAndamento] = useState(new Date());
-    const [startDateTransito, setStartDateTransito] = useState(new Date());
+    const [startDateDistribuicao, setStartDateDistribuicao] = useState(null);
+    const [startDateAndamento, setStartDateAndamento] = useState(null);
+    const [startDateTransito, setStartDateTransito] = useState(null);
 
     registerLocale('pt-BR', ptBR);
     setDefaultLocale('pt-BR');
