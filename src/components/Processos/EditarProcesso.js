@@ -108,9 +108,10 @@ const EditarProcesso = (props) => {
     
     function handleChange(event) {
     setState({ ...state, [event.target.name]: event.target.value,
-    dataDistribuicao: startDateDistribuicao,
-    dataUltimoAndamento: startDateAndamento,
-    dataTransitoEmJulgado: startDateTransito});
+    //dataDistribuicao: startDateDistribuicao,
+    //dataUltimoAndamento: startDateAndamento,
+   //dataTransitoEmJulgado: startDateTransito
+});
     }
 
     return (
