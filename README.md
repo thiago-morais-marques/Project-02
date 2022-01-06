@@ -17,9 +17,11 @@ Functions to create, edit and delete lawsuits are available and working.
 
 On the "Relatórios" page, which has not yet been created, I intend to display graphs of the data of the lawsuits held in the page "Processos".
 
-Link to the app: https://jurimetria.netlify.app/
+### Links
 
-Link to the slide presentation: https://docs.google.com/presentation/d/e/2PACX-1vTMRKEk9zfvUqfiDvPsKNhidBN-qfHrRIyze9GazIh2JNnwaAf1MKc9tc-vdV_SIAJBv1SCK5CjiMlX/pub?start=false&loop=false&delayms=3000
+[Link to the APP](https://jurimetria.netlify.app/)
+
+[Link to the slide presentation](https://docs.google.com/presentation/d/e/2PACX-1vTMRKEk9zfvUqfiDvPsKNhidBN-qfHrRIyze9GazIh2JNnwaAf1MKc9tc-vdV_SIAJBv1SCK5CjiMlX/pub?start=false&loop=false&delayms=3000)
 
 #### ABOUT THE AUTHOR
 Thiago Morais Marques
