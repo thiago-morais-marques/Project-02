@@ -26,5 +26,5 @@ On the "Relatórios" page, which has not yet been created, I intend to display g
 #### ABOUT THE AUTHOR
 Thiago Morais Marques
 
-You can find me on [LinkedIn](https://www.linkedin.com/in/thiago-morais-marques). 
+You can find me on [LinkedIn](https://www.linkedin.com/in/thiagomoraismarques). 
 
