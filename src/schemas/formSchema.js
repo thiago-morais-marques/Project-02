@@ -24,9 +24,9 @@ const formSchema = yup.object().shape({
   julgamentoStf: yup.boolean(),
   procedenciaStf: yup.boolean(),
   transitoEmJulgado: yup.boolean(),
-  dataDistribuicao: yup.string(),
-  dataUltimoAndamento: yup.string().nullable(),
-  dataTransitoEmJulgado: yup.string().nullable(),
+  dataDistribuicao: yup.date().nullable(),
+  dataUltimoAndamento: yup.date().nullable(),
+  dataTransitoEmJulgado: yup.date().nullable(),
 });
 
 export default formSchema;

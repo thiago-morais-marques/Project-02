@@ -11,7 +11,8 @@ import FormCheckbox from './FormCheckbox';
 import DatePickerField from './DatePicker';
 
 const BaseForm = ({
-  show, handleClose, values, handleChange, handleSubmit, setFieldValue, title,
+  show, handleClose, values, handleChange, handleSubmit,
+  setFieldValue, title, errors, touched, isValid, setFieldTouched,
 }) => {
   const fieldLabels = [
     'Pólo Ativo',
@@ -46,6 +47,16 @@ const BaseForm = ({
 
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
 
+  const changeField = (name, e) => {
+    handleChange(e);
+    setFieldTouched(name, true, false);
+  };
+
+  const changeDate = (name, value) => {
+    setFieldValue(name, value);
+    setFieldTouched(name, true, false);
+  };
+
   return (
     <Dialog
       component="form"
@@ -71,8 +82,10 @@ const BaseForm = ({
               label={fieldLabels[0]}
               name="poloAtivo"
               required={true}
-              handleChange={handleChange}
+              handleChange={changeField}
               values={values.poloAtivo}
+              errors={errors.poloAtivo}
+              touched={touched.poloAtivo}
             />
           </Grid>
           <Grid item xs={12} md={4}>
@@ -80,8 +93,10 @@ const BaseForm = ({
               label={fieldLabels[1]}
               name="poloPassivo"
               required={true}
-              handleChange={handleChange}
+              handleChange={changeField}
               values={values.poloPassivo}
+              errors={errors.poloPassivo}
+              touched={touched.poloPassivo}
             />
           </Grid>
           <Grid item xs={12} md={4}>
@@ -89,8 +104,10 @@ const BaseForm = ({
               label={fieldLabels[2]}
               name="poloCliente"
               required={true}
-              handleChange={handleChange}
+              handleChange={changeField}
               values={values.poloCliente}
+              errors={errors.poloCliente}
+              touched={touched.poloCliente}
             />
           </Grid>
           <Grid item xs={12} md={4}>
@@ -98,8 +115,10 @@ const BaseForm = ({
               label={fieldLabels[3]}
               name="processo"
               required={true}
-              handleChange={handleChange}
+              handleChange={changeField}
               values={values.processo}
+              errors={errors.processo}
+              touched={touched.processo}
             />
           </Grid>
           <Grid item xs={12} md={4}>
@@ -107,8 +126,10 @@ const BaseForm = ({
               label={fieldLabels[4]}
               name="pedido"
               required={true}
-              handleChange={handleChange}
+              handleChange={changeField}
               values={values.pedido}
+              errors={errors.pedido}
+              touched={touched.pedido}
             />
           </Grid>
           <Grid item xs={12} md={4}>
@@ -116,8 +137,10 @@ const BaseForm = ({
               label={fieldLabels[5]}
               required={true}
               name="vara"
-              handleChange={handleChange}
+              handleChange={changeField}
               values={values.vara}
+              errors={errors.vara}
+              touched={touched.vara}
             />
           </Grid>
         </Grid>
@@ -133,8 +156,10 @@ const BaseForm = ({
               label={fieldLabels[6]}
               required={false}
               name="juiz"
-              handleChange={handleChange}
+              handleChange={changeField}
               values={values.juiz}
+              errors={errors.juiz}
+              touched={touched.juiz}
             />
           </Grid>
           <Grid item xs={12} md={2.66} sx={{ alignSelf: 'center' }}>
@@ -174,8 +199,10 @@ const BaseForm = ({
               label={fieldLabels[11]}
               required={false}
               name="desembargadorRelator"
-              handleChange={handleChange}
+              handleChange={changeField}
               values={values.desembargadorRelator}
+              errors={errors.desembargadorRelator}
+              touched={touched.desembargadorRelator}
             />
           </Grid>
           <Grid item xs={12} md={2.66} sx={{ alignSelf: 'center' }}>
@@ -215,8 +242,10 @@ const BaseForm = ({
               label={fieldLabels[15]}
               required={false}
               name="ministroStjRelator"
-              handleChange={handleChange}
+              handleChange={changeField}
               values={values.ministroStjRelator}
+              errors={errors.ministroStjRelator}
+              touched={touched.ministroStjRelator}
             />
           </Grid>
           <Grid item xs={12} md={2.66} sx={{ alignSelf: 'center' }}>
@@ -256,8 +285,10 @@ const BaseForm = ({
               label={fieldLabels[19]}
               required={false}
               name="ministroStfRelator"
-              handleChange={handleChange}
+              handleChange={changeField}
               values={values.ministroStfRelator}
+              errors={errors.ministroStfRelator}
+              touched={touched.ministroStfRelator}
             />
           </Grid>
           <Grid item xs={12} md={2.66} sx={{ alignSelf: 'center' }}>
@@ -304,8 +335,10 @@ const BaseForm = ({
             <DatePickerField
               label={fieldLabels[23]}
               name="dataDistribuicao"
-              handleChange={setFieldValue}
+              handleChange={changeDate}
               values={values.dataDistribuicao}
+              errors={errors.dataDistribuicao}
+              touched={touched.dataDistribuicao}
             />
           </Grid>
           <Grid item xs={12} md={3}>
@@ -314,6 +347,8 @@ const BaseForm = ({
               name="dataUltimoAndamento"
               handleChange={setFieldValue}
               values={values.dataUltimoAndamento}
+              errors={errors.dataUltimoAndamento}
+              touched={touched.dataUltimoAndamento}
             />
           </Grid>
           <Grid item xs={12} md={3}>
@@ -322,13 +357,15 @@ const BaseForm = ({
               name="dataTransitoEmJulgado"
               handleChange={setFieldValue}
               values={values.dataTransitoEmJulgado}
+              errors={errors.dataTransitoEmJulgado}
+              touched={touched.dataTransitoEmJulgado}
             />
           </Grid>
         </Grid>
       </DialogContent>
       <DialogActions className="dialog-footer">
         <Button onClick={handleClose}>Cancelar</Button>
-        <Button onClick={handleClose} type="submit">Salvar</Button>
+        <Button type="submit" disabled={!isValid}>Salvar</Button>
       </DialogActions>
     </Dialog>
   );
@@ -337,10 +374,14 @@ const BaseForm = ({
 BaseForm.propTypes = {
   title: PropTypes.string.isRequired,
   show: PropTypes.bool.isRequired,
+  isValid: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   setFieldValue: PropTypes.func.isRequired,
+  setFieldTouched: PropTypes.func.isRequired,
   handleChange: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func.isRequired,
+  errors: PropTypes.objectOf(PropTypes.string).isRequired,
+  touched: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.object, PropTypes.bool])).isRequired,
   values: PropTypes.shape({
     poloAtivo: PropTypes.string,
     poloPassivo: PropTypes.string,

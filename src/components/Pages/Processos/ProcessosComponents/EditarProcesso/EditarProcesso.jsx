@@ -12,7 +12,8 @@ const EditarProcesso = ({
   id, handleClose, show, setLoading,
 }) => {
   const {
-    values, setValues, handleChange, handleSubmit, setFieldValue,
+    values, errors, touched, isValid,
+    setValues, handleChange, handleSubmit, setFieldValue, setFieldTouched,
   } = useFormik({
     initialValues: {
       poloAtivo: '',
@@ -94,6 +95,10 @@ const EditarProcesso = ({
       handleChange={handleChange}
       setFieldValue={setFieldValue}
       handleSubmit={handleSubmit}
+      errors={errors}
+      touched={touched}
+      isValid={isValid}
+      setFieldTouched={setFieldTouched}
     />
   );
 };

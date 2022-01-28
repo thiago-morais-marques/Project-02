@@ -7,7 +7,7 @@ import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import PropTypes from 'prop-types';
 
 const DatePickerField = ({
-  label, name, values, handleChange,
+  label, name, values, handleChange, touched, errors,
 }) => {
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns} locale={ptBR}>
@@ -18,6 +18,8 @@ const DatePickerField = ({
         name={name}
         onChange={(value) => handleChange(name, value)}
         renderInput={(params) => <TextField fullWidth {...params} />}
+        error={touched && Boolean(errors)}
+        helperText={touched && errors}
       />
     </LocalizationProvider>
   );
@@ -25,6 +27,8 @@ const DatePickerField = ({
 
 DatePickerField.defaultProps = {
   values: '',
+  errors: '',
+  touched: false,
 };
 
 DatePickerField.propTypes = {
@@ -32,6 +36,8 @@ DatePickerField.propTypes = {
   name: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   values: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
+  errors: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+  touched: PropTypes.oneOfType([PropTypes.object, PropTypes.bool]),
 };
 
 export default DatePickerField;

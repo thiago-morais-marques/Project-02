@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useFormik } from 'formik';
 import { MdAddCircle } from 'react-icons/md';
@@ -11,37 +11,48 @@ import { postSuit } from '../../../../../services/api';
 import formSchema from '../../../../../schemas/formSchema';
 
 const CadastrarProcesso = ({ setLoading }) => {
+  const [show, setShow] = useState(false);
+
+  const memoizedValues = useMemo(() => ({ color: '#063970', size: '1.1em', className: 'react-icons' }), []);
+
+  const handleClose = () => setShow(false);
+
+  const handleShow = () => setShow(true);
+
+  const originalValues = {
+    poloAtivo: '',
+    poloPassivo: '',
+    poloCliente: '',
+    processo: '',
+    vara: '',
+    pedido: '',
+    juiz: '',
+    sentencaProferida: false,
+    julgamentoMerito: false,
+    procedenciaPrimeiraInstancia: false,
+    recursoSegundaInstancia: false,
+    desembargadorRelator: '',
+    julgamentoSegundaInstancia: false,
+    procedenciaSegundaInstancia: false,
+    recursoStj: false,
+    ministroStjRelator: '',
+    julgamentoStj: false,
+    procedenciaStj: false,
+    recursoStf: false,
+    ministroStfRelator: '',
+    julgamentoStf: false,
+    procedenciaStf: false,
+    transitoEmJulgado: false,
+    dataDistribuicao: null,
+    dataUltimoAndamento: null,
+    dataTransitoEmJulgado: null,
+  };
+
   const {
-    values, handleChange, handleSubmit, setFieldValue,
+    values, errors, touched, isValid,
+    setValues, handleChange, handleSubmit, setFieldValue, setFieldTouched,
   } = useFormik({
-    initialValues: {
-      poloAtivo: '',
-      poloPassivo: '',
-      poloCliente: '',
-      processo: '',
-      vara: '',
-      pedido: '',
-      juiz: '',
-      sentencaProferida: false,
-      julgamentoMerito: false,
-      procedenciaPrimeiraInstancia: false,
-      recursoSegundaInstancia: false,
-      desembargadorRelator: '',
-      julgamentoSegundaInstancia: false,
-      procedenciaSegundaInstancia: false,
-      recursoStj: false,
-      ministroStjRelator: '',
-      julgamentoStj: false,
-      procedenciaStj: false,
-      recursoStf: false,
-      ministroStfRelator: '',
-      julgamentoStf: false,
-      procedenciaStf: false,
-      transitoEmJulgado: false,
-      dataDistribuicao: null,
-      dataUltimoAndamento: null,
-      dataTransitoEmJulgado: null,
-    },
+    initialValues: originalValues,
     validationSchema: formSchema,
     onSubmit: async (formData) => {
       await postSuit({
@@ -73,16 +84,13 @@ const CadastrarProcesso = ({ setLoading }) => {
         dataTransitoEmJulgado: formData.dataTransitoEmJulgado,
       });
       setLoading(true);
+      setShow(false);
     },
   });
 
-  const [show, setShow] = useState(false);
-
-  const memoizedValues = useMemo(() => ({ color: '#063970', size: '1.1em', className: 'react-icons' }), []);
-
-  const handleClose = () => setShow(false);
-
-  const handleShow = () => setShow(true);
+  useEffect(() => {
+    setValues(originalValues);
+  }, [show]);
 
   return (
     <div className="add-new-suit">
@@ -99,11 +107,15 @@ const CadastrarProcesso = ({ setLoading }) => {
       <BaseForm
         title="Cadastrar Novo Processo"
         show={show}
+        errors={errors}
+        touched={touched}
         handleClose={handleClose}
         values={values}
         handleChange={handleChange}
         setFieldValue={setFieldValue}
         handleSubmit={handleSubmit}
+        isValid={isValid}
+        setFieldTouched={setFieldTouched}
       />
     </div>
   );

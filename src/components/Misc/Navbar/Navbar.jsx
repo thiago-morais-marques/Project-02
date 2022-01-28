@@ -31,8 +31,8 @@ const AppNavbar = () => {
           >
             <Nav.Link href="/processos">Processos</Nav.Link>
             <Nav.Link href="/relatorios">Relatórios</Nav.Link>
-            <Nav.Link className="d-lg-none" href="/processos">Login</Nav.Link>
-            <Nav.Link className="d-lg-none" href="/relatorios">SignUp</Nav.Link>
+            <Nav.Link className="d-lg-none" href="/">Login</Nav.Link>
+            <Nav.Link className="d-lg-none" href="/">SignUp</Nav.Link>
           </Nav>
           <div
             style={{
