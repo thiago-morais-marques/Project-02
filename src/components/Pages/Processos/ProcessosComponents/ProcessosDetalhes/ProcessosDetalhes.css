@@ -1,0 +1,92 @@
+.details-keys {
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.table-container {
+    display: flex;
+    align-items: baseline;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    margin: 3px;
+  }
+
+td {
+    border: 1.5px solid #dddddd;
+    text-align: left;
+    padding: 0.3rem !important;
+    font-size: 0.8rem;
+    flex: auto;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.edit-button {
+    background:none;
+    border:none;
+    display: flex;
+    color:mediumblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 4.4rem;
+}
+
+.delete-button {
+    background:none;
+    border:none;
+    display: flex;
+    color: firebrick;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 5.1rem;
+    margin-left: 1rem;
+}
+
+.details-buttons {
+    display: flex;
+    justify-content: flex-start;
+    padding: 0.5rem;
+}
+
+@media only screen and (max-width: 768px) {
+    .details-keys {
+        font-size: 0.75rem;
+    }
+
+    .table-container {
+        display: block;
+    }
+
+    table {
+        margin: 3px 0px;
+    }
+    
+    tr {
+        border: 1px solid #ccc; 
+    }
+    
+    .edit-button {
+        width: 3.7rem;
+        font-size: 0.8rem;
+    }
+    
+    .delete-button {
+        width: 4.2rem;
+        margin-left: 0.3rem;
+        font-size: 0.8rem;
+    }
+    
+    .details-buttons {
+        padding: 0.3rem;
+        justify-content: flex-end;
+    }
+}

@@ -1,0 +1,44 @@
+.accordion {
+    background-color: #eee;
+    color: #444;
+    padding: 18px;
+    width: 100%;
+}
+
+.active, .accordion:hover {
+    background-color: #ccc;
+}
+
+.accordion-header {
+    display: flex;
+}
+
+.suit-info {
+    flex: auto;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+}
+
+.proc-number {
+    font-weight: bold;
+    min-width: 3.2rem;
+}
+
+.loading-screen {
+    display: flex;
+    padding: 10rem;
+    justify-content: center; 
+    height: 100vh 
+}
+
+@media only screen and (max-width: 768px) {
+    .suit-info {
+        font-size: 0.8rem;
+        align-items:stretch;
+    }
+    .suit-data {
+        display: flex;
+        align-items: baseline !important;
+    }
+}
