@@ -57,7 +57,7 @@ tr:nth-child(even) {
     padding: 0.5rem;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1195px) {
     .details-keys {
         font-size: 0.75rem;
     }
