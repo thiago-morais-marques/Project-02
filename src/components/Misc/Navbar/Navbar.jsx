@@ -30,7 +30,7 @@ const AppNavbar = () => {
             navbarScroll
           >
             <Nav.Link href="/processos">Processos</Nav.Link>
-            <Nav.Link href="/relatorios">Relatórios</Nav.Link>
+            <Nav.Link href="/">Relatórios</Nav.Link>
             <Nav.Link className="d-lg-none" href="/">Login</Nav.Link>
             <Nav.Link className="d-lg-none" href="/">SignUp</Nav.Link>
           </Nav>

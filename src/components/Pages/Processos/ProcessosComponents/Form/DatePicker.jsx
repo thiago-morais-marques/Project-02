@@ -12,7 +12,7 @@ const DatePickerField = ({
   return (
     <LocalizationProvider dateAdapter={AdapterDateFns} locale={ptBR}>
       <MobileDatePicker
-        mask="'__/__/____'"
+        mask="__/__/____"
         label={label}
         value={values}
         name={name}
