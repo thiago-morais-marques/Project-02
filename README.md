@@ -1,5 +1,5 @@
 # JURIMETRIA
-![alt text](https://github.com/THGMMX/Project-02/blob/main/src/components/Navbar/logo.png)
+![alt text](https://github.com/THGMMX/Project-02/blob/main/src/assets/images/logo.png)
 
 ### INTRODUCTION
 This is an app project that aims to extract statistical data from lawsuits to provide strategic data for lawyers.
