@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Accordion } from 'react-bootstrap';
-import { CircularProgress } from '@mui/material';
 import { GoLaw } from 'react-icons/go';
 import { IconContext } from 'react-icons';
+import { CircularProgress } from '@mui/material';
 import ProcessosDetalhes from '../ProcessosDetalhes/ProcessosDetalhes';
 import { getAllSuits } from '../../../../../services/api';
 import './Lista.css';

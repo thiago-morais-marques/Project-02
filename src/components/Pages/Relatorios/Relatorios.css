@@ -1,3 +1,98 @@
-h1 {
+.report-page-container {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+.relatorios-title {
     color: #063970;
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+    padding: 2rem;
+}
+
+.suits-report-container {
+    padding: 0 1rem;
+}
+
+.suits-report-divider {
+    margin-bottom: 1rem !important;
+}
+
+.report-avatar-icon {
+    background-color: #063970 !important;
+    height: 2.5rem !important;
+    width: 2.5rem !important;
+}
+
+.reports-references {
+    margin-top: 1rem;
+}
+
+.references-typography {
+    font-size: 0.75rem !important;
+}
+
+.suit-report-first-row {
+    margin-top: 1rem;
+}
+
+.suit-container-nav {
+    flex: 1;
+    padding: 1rem 2rem;
+    align-items: center;
+}
+
+.suit-report-nav-items {
+    display: flex;
+    align-items: center;
+}
+
+@media only screen and (max-width: 768px) {
+    .relatorios-title {
+        font-size: 1.5rem;
+        padding: 1rem;
+    }
+
+    .report-page-container {
+        margin: 0.5rem;
+    }
+
+    .suits-report-container {
+        padding: 0 0;
+    }
+
+    .report-avatar-icon {
+        height: 1.9rem !important;
+        width: 1.9rem !important;
+    }
+
+    .reports-references {
+        margin-top: 0.5rem;
+    }
+
+    .references-typography {
+        font-size: 0.7rem !important;
+    }
+
+    .suit-container-nav {
+        padding: 0.5rem 0.55rem;
+    }
+
+    .suit-report-nav-items {
+        font-size: 0.75rem;
+    }
+
+    .suit-report-select {
+        font-size: 0.75rem !important;
+    }
+
+    .card-text-title {
+        font-size: 0.7rem !important;
+    }
+
+    .card-text-content {
+        font-size: 1.5rem !important;  
+    }
 }
