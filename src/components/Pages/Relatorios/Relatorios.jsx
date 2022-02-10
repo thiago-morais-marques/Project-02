@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Avatar, Divider, Typography } from '@mui/material';
 import { GoLaw } from 'react-icons/go';
-import SuitContainer from './RelatoriosComponents/bySuit/SuitContainer';
-import SuitSelect from './RelatoriosComponents/bySuit/SuitSelect';
-import SuitsReport from './RelatoriosComponents/bySuit/SuitsReport';
+import SuitContainer from './RelatoriosComponents/SuitContainer';
+import SuitSelect from './RelatoriosComponents/SuitSelect';
+import RequestSelect from './RelatoriosComponents/RequestSelect';
+import SuitsReport from './RelatoriosComponents/SuitsReport';
+import RequestReport from './RelatoriosComponents/RequestReport';
 import { getAllSuits } from '../../../services/api';
 import './Relatorios.css';
 import '../Processos/Processos.css';
@@ -11,6 +13,7 @@ import '../Processos/Processos.css';
 const Relatorios = () => {
   const [suits, setSuits] = useState([]);
   const [targetSuit, setTargetSuit] = useState('');
+  const [request, setRequest] = useState('');
 
   useEffect(async () => {
     const suitsReponse = await getAllSuits();
@@ -67,6 +70,28 @@ const Relatorios = () => {
             Com base em ações de mesmo pedido.
           </Typography>
         </div>
+        <Divider variant="middle" textAlign="left" className="suits-report-divider-02">
+          Por Pedidos
+        </Divider>
+        <SuitContainer>
+          <div className="suit-report-nav-items">
+            <Avatar className="report-avatar-icon">
+              <GoLaw />
+            </Avatar>
+            &nbsp;
+            Pedido:
+            &nbsp;
+            <RequestSelect
+              suits={suits}
+              request={request}
+              setRequest={setRequest}
+            />
+          </div>
+        </SuitContainer>
+        <RequestReport
+          request={request}
+          suits={suits}
+        />
       </div>
     </div>
   );

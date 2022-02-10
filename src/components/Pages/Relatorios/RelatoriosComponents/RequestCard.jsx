@@ -4,28 +4,23 @@ import {
   Card, CardContent, Grid, Typography, CircularProgress,
 } from '@mui/material';
 
-const Riscos = ({
-  suits, report, wonSuits, title,
+const RequestCard = ({
+  request, wonSuits, title, suits,
 }) => {
-  const suitsByRequests = (target) => {
-    return target.pedido === report.pedido;
+  const requests = (target) => {
+    return target.pedido === request;
   };
 
-  const filteredByRequest = suits.filter(suitsByRequests);
-
-  // const filterPrimeiraInstancia = (target) => {
-  //   return target.pedido === report.pedido && target.procedenciaPrimeiraInstancia === true;
-  // };
+  const filteredByRequest = suits.filter(requests);
 
   const filteredWonSuits = suits.filter(wonSuits);
 
   const risk = () => {
     const proportion = (filteredWonSuits.length * 100) / filteredByRequest.length;
-    const result = 100 - proportion;
-    if (Number.isNaN(result)) {
+    if (Number.isNaN(proportion)) {
       return NaN;
     }
-    return result.toFixed(0);
+    return proportion.toFixed(0);
   };
 
   return (
@@ -47,8 +42,6 @@ const Riscos = ({
               className="card-text-title"
             >
               {title}
-              &nbsp;
-              <sup>3</sup>
             </Typography>
             <Typography
               color="textPrimary"
@@ -70,11 +63,11 @@ const Riscos = ({
   );
 };
 
-Riscos.propTypes = {
-  report: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
+RequestCard.propTypes = {
   suits: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   wonSuits: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
+  request: PropTypes.string.isRequired,
 };
 
-export default Riscos;
+export default RequestCard;

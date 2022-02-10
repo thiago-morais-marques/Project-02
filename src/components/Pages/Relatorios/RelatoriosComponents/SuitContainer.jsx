@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
-import '../../Relatorios.css';
+import '../Relatorios.css';
 
 const Item = styled(Paper)(({ theme }) => ({
   ...theme.typography.body1,

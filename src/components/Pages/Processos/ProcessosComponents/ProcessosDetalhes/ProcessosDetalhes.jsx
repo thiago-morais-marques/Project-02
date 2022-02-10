@@ -15,7 +15,7 @@ const ProcessosDetalhes = ({ detalhes, setLoading }) => {
   const handleOpenDeleteDialog = () => setOpenDeleteDialog(true);
   const handleCloseDeleteDialog = () => setOpenDeleteDialog(false);
   return (
-    <div className="details-container">
+    <div>
       <div className="details-buttons">
         <button
           type="button"
@@ -147,10 +147,6 @@ const ProcessosDetalhes = ({ detalhes, setLoading }) => {
                 {detalhes.procedenciaPrimeiraInstancia === true ? 'Sim' : 'Não' }
               </td>
             </tr>
-          </tbody>
-        </table>
-        <table>
-          <tbody>
             <tr>
               <td>
                 <span className="details-keys">
@@ -219,10 +215,6 @@ const ProcessosDetalhes = ({ detalhes, setLoading }) => {
                 {detalhes.procedenciaStj === true ? 'Sim' : 'Não' }
               </td>
             </tr>
-          </tbody>
-        </table>
-        <table>
-          <tbody>
             <tr>
               <td>
                 <span className="details-keys">
@@ -250,7 +242,7 @@ const ProcessosDetalhes = ({ detalhes, setLoading }) => {
             <tr>
               <td>
                 <span className="details-keys">
-                  Procedência eno STF:&nbsp;
+                  Procedência no STF:&nbsp;
                 </span>
                 {detalhes.procedenciaStj === true ? 'Sim' : 'Não' }
               </td>

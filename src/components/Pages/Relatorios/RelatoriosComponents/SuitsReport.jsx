@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Grid } from '@mui/material';
-import { getOneSuit } from '../../../../../services/api';
+import { getOneSuit } from '../../../../services/api';
 import TempoDeDuracao from './TempoDeDuracaoCard';
 import ExpectativaDuracao from './ExpectativaDuracaoCard';
 import RiscosCard from './RiscosCard';
